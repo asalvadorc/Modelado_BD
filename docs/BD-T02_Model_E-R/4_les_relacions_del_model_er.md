@@ -126,16 +126,14 @@ Ho representarem així:
 
 
 
-![](relacio_card1.png)
+![](relacio_card_1M.png)
 
 
-
+<!--
 o millor:
 
-
-
 ![](relacio_card2.png)
-
+-->
 
 
   
