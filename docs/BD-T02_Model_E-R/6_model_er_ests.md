@@ -100,7 +100,7 @@ dèbil sempre és (1,1). O el que és el mateix, la dèbil sempre participa de
 forma total en la relació 1:N.
 
 Tal com hem comentat les coses fins ara direm que l’entitat dèbil té una
-**DEPENDÈNCIA EN EXISTÈNCIA**[1]****.
+**DEPENDÈNCIA EN EXISTÈNCIA**[1].
 
 Però podem anar més enllà, si a més de la dependència en existència considerem
 que per a identificar una ocurrència de l’entitat dèbil ens fa falta la clau

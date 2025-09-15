@@ -1,7 +1,6 @@
 # 1. Introducció
 
 
-
 El **Model Entitat-Relació** (**M E/R**) és un model d'alt nivell, que ens
 permetrà representar el món que volem amb un llenguatge, una estructura més
 propera a nosaltres. L'utilitzarem dins de tot el procés de creació de la Base
