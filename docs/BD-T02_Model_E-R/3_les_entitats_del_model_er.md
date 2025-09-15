@@ -68,8 +68,7 @@ nom que podria estar format per: _nom=(nom de pila, primer cognom, segon
 cognom)_.
 
 Poden haver atributs **MULTIVALUATS** , que vol dir que poden agafar més d'un
-valor. Per exemple suposem que en el cas anterior considerem el camp _altres
-telèfons****_(per si en l'empresa hi ha moments que hem de localitzar
+valor. Per exemple suposem que en el cas anterior considerem el camp **altres telèfons** (per si en l'empresa hi ha moments que hem de localitzar
 l'empleat urgentment). Potser un empleat no tinga cap valor en aquest camp. I
 potser un altre en tinga dos (el mòbil i el d'una segona residència). En
 general fugirem d'aquestos camps per comoditat, però el model ho accepta.
