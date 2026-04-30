@@ -1,5 +1,5 @@
 site_url : https://asalvadorc.github.io/BBDD_Tema2
-site_name: BD - Bases de Datos
+site_name: Modelado de Bases de Datos
 
 theme:
   name: material
@@ -51,16 +51,16 @@ markdown_extensions:
 nav:
   - Inicio: index.md
   - Tema 2 - Modelo Entidad-Relación:
-    - Objetivos y conocimientos previos: BD-T02_Model_E-R/objectius_i_coneixements_previs.md
-    - 1. Introducción: BD-T02_Model_E-R/1_introducci.md
-    - 2. Ejemplo: BD-T02_Model_E-R/2_exemple.md
-    - 3. Las Entidades del Modelo E/R: BD-T02_Model_E-R/3_les_entitats_del_model_er.md
-    - Ejercicios: BD-T02_Model_E-R/exercicis.md
-    - 4. Las Relaciones del Modelo E/R: BD-T02_Model_E-R/4_les_relacions_del_model_er.md
-    - Ejercicios: BD-T02_Model_E-R/exercicis0.md
-    - 5. Relaciones de grado mayor que dos: BD-T02_Model_E-R/5_relacions_de_grau_major_que_dos.md
-    - 6. Modelo E/R Extendido: BD-T02_Model_E-R/6_model_er_ests.md
-    - 7. Restricciones externas: BD-T02_Model_E-R/7_restriccions_externes.md
-    - Ejercicios: BD-T02_Model_E-R/exercicis1.md
-    - Información adicional: BD-T02_Model_E-R/informaci_addicional.md
+    - Objetivos y conocimientos previos: Model_E-R/objectius_i_coneixements_previs.md
+    - 1. Introducción: Model_E-R/1_introducci.md
+    - 2. Ejemplo: Model_E-R/2_exemple.md
+    - 3. Las Entidades del Modelo E/R: Model_E-R/3_les_entitats_del_model_er.md
+    - Ejercicios: Model_E-R/exercicis.md
+    - 4. Las Relaciones del Modelo E/R: Model_E-R/4_les_relacions_del_model_er.md
+    - Ejercicios: Model_E-R/exercicis0.md
+    - 5. Relaciones de grado mayor que dos: Model_E-R/5_relacions_de_grau_major_que_dos.md
+    - 6. Modelo E/R Extendido: Model_E-R/6_model_er_ests.md
+    - 7. Restricciones externas: Model_E-R/7_restriccions_externes.md
+    - Ejercicios: Model_E-R/exercicis1.md
+    - Información adicional: Model_E-R/informaci_addicional.md
   
