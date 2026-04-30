@@ -1,0 +1,1779 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://asalvadorc.github.io/Modelado_BD/Model_E-R/6_modelo_er_extendido/">
+      
+      
+        <link rel="prev" href="../5_relaciones_de_grado_mayor_que_dos/">
+      
+      
+        <link rel="next" href="../7_restricciones_externas/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>6. Modelo E/R Extendido - BD - Modelado de Bases de Datos</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-modelo-er-extendido" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="BD - Modelado de Bases de Datos" class="md-header__button md-logo" aria-label="BD - Modelado de Bases de Datos" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BD - Modelado de Bases de Datos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Modelo E/R Extendido
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../objetivos_y_conocimientos_previos/" class="md-tabs__link">
+          
+  
+  
+  Modelo Entidad-Relación
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Model_Relacional/objetivos_y_conocimientos_previos/" class="md-tabs__link">
+          
+  
+  
+  Modelo Relacional
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Normalizacion/objetivos/" class="md-tabs__link">
+          
+  
+  
+  Normalización
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BD - Modelado de Bases de Datos" class="md-nav__button md-logo" aria-label="BD - Modelado de Bases de Datos" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    BD - Modelado de Bases de Datos
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo Entidad-Relación
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modelo Entidad-Relación
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objetivos_y_conocimientos_previos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetivos y conocimientos previos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_ejemplo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Ejemplo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_las_entidades_del_modelo_er/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Las Entidades del Modelo E/R
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ejercicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_las_relaciones_del_modelo_er/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Las Relaciones del Modelo E/R
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ejercicios0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_relaciones_de_grado_mayor_que_dos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Relaciones de grado mayor que dos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Modelo E/R Extendido
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Modelo E/R Extendido
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-cardinalidad-maxima-y-minima-participacion-total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Cardinalidad máxima y mínima. Participación total.
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Cardinalidad máxima y mínima. Participación total.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aplicacion-al-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aplicación al ejemplo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-entidades-debiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Entidades débiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-generalizacion-y-herencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Generalización y herencia
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Generalización y herencia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aplicacion-al-ejemplo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aplicación al ejemplo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_restricciones_externas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Restricciones externas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ejercicios1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../informacion_adicional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Información adicional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo Relacional
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modelo Relacional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_Relacional/objetivos_y_conocimientos_previos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetivos y conocimientos previos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_Relacional/1_introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_Relacional/2_estructura_del_modelo_relacional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Estructura del Modelo Relacional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_Relacional/3_restricciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Restricciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_Relacional/4_transformacion_del_m_er_al_m_relacional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Transformación del M. E/R al M. Relacional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_Relacional/5_lenguajes_relacionales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Lenguajes relacionales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_Relacional/6_ejercicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normalización
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Normalización
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/objetivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/1_introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/2_primera_forma_normal_1fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Primera Forma Normal (1FN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/3_dependencia_funcional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dependencia Funcional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/4_segunda_forma_normal_2fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Segunda Forma Normal (2FN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/5_dependencia_funcional_transitiva/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dependencia Funcional Transitiva
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/6_tercera_forma_normal_3fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Tercera Forma Normal (3FN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/7_forma_normal_boycecodd_fnbc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Forma Normal Boyce-Codd (FNBC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/Ejemplo_completo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejemplo Completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/resumen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/ejercicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../objetivos_y_conocimientos_previos/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Modelo Entidad-Relación
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6-modelo-er-extendido">6. Modelo E/R Extendido</h1>
+<p>Lo que hemos visto hasta ahora proporciona una herramienta para describir la realidad muy
+potente. Pero todavía hay restricciones del mundo real que no podemos representar.</p>
+<p>Por ejemplo, de la entidad FAMILIAR no nos interesan todos los familiares del
+mundo, únicamente los familiares de los empleados. Es más, si un empleado deja de
+trabajar en la empresa, ya no nos interesan sus familiares.</p>
+<p>O otro ejemplo, hemos puesto que la relación DIRIGE es <strong>1:1</strong>, y esto nos
+podría hacer pensar que las dos entidades, EMPLEADO y DEPARTAMENTO, participan
+exactamente de la misma manera en la relación. Pero no es exactamente así, ya
+que todo departamento tendrá un empleado que lo dirige, pero no todo empleado tiene
+un departamento a dirigir.</p>
+<p>Esto hace que el Modelo E/R se haya desarrollado con las aportaciones de más
+autores, hasta llegar al <strong>MODELO ENTIDAD-RELACIÓN EXTENDIDO</strong>.</p>
+<h2 id="61-cardinalidad-maxima-y-minima-participacion-total">6.1 Cardinalidad máxima y mínima. Participación total.</h2>
+<p><strong>CARDINALIDAD MÁXIMA y MÍNIMA</strong> de una entidad que participa en una relación,
+son respectivamente el número máximo y mínimo de ocurrencias de esta entidad que
+están relacionadas con una ocurrencia de la otra entidad</p>
+<p><img alt="" src="../estes_tot1.png" /></p>
+<p><strong>Por ejemplo</strong></p>
+<p>Un empleado puede dirigir 0 o 1 departamento, y un departamento es dirigido (como
+mínimo y como máximo) por 1 empleado. Lo pondremos entre paréntesis <strong>(card.
+mínima, card. máxima)</strong> al lado de la entidad. En realidad el nuevo concepto
+es la cardinalidad mínima, ya que la máxima es la cardinalidad de antes. Los
+valores habituales de cardinalidad mínima son 0 y 1.</p>
+<p><strong>PARTICIPACIÓN TOTAL O PARCIAL</strong></p>
+<p>Una entidad participa de forma <strong>TOTAL</strong> en una relación, si todas sus
+ocurrencias participan en alguna ocurrencia de la relación. Así DEPARTAMENTO
+participa de forma total, ya que todo departamento tiene un jefe. En cambio EMPLEADO
+no participa de forma total, ya que no todo empleado dirige un departamento.
+Las entidades que participan de forma total tienen de cardinalidad mínima 1. Las
+que no 0. <strong>Por tanto con la participación total o parcial conseguimos lo mismo
+que con la cardinalidad mínima.</strong></p>
+<p>Representaremos que una entidad participa de forma total en una relación con una
+doble raya</p>
+<p><img alt="" src="../estes_tot2.png" /></p>
+<p>Como de las dos maneras anteriores, la cardinalidad mínima y la
+participación total o parcial, conseguimos exactamente lo mismo, en estos
+apuntes <strong>solo representaremos la participación total o parcial</strong>, ya que tiene una
+representación gráfica muy sencilla.</p>
+<hr />
+<p>[1] Hay autores que las ponen al revés, en las otras entidades.</p>
+<h3 id="aplicacion-al-ejemplo">Aplicación al ejemplo</h3>
+<p>Aplicando la participación total y parcial, nuestro ejemplo quedará:</p>
+<p><img alt="" src="../estes_tot3.png" /></p>
+<h2 id="62-entidades-debiles">6.2 Entidades débiles</h2>
+<p>No todas las entidades son iguales. En las normales, que llamaremos <strong>REGULARES</strong>,
+las ocurrencias tienen existencia propia.</p>
+<p>En cambio, en las entidades <strong>DÉBILES</strong>, la existencia de las ocurrencias depende
+de la existencia de la ocurrencia de otra entidad, y así si desaparece
+esta última, deberían desaparecer también todas aquellas.</p>
+<p>Por ejemplo los familiares de Juan Pérez podrían ser [Marta, mujer], [Isabel,
+hija] y [Marcos, hijo]. Si desaparece el empleado Juan Pérez deberían
+desaparecer también sus familiares.</p>
+<p>Las entidades débiles las representaremos por un doble rectángulo:</p>
+<p><img alt="Cuadro de texto: FAMILIAR" src="../debil1.png" /></p>
+<p>La cardinalidad mínima y máxima de la entidad regular en la relación con la
+débil siempre es (1,1). O lo que es lo mismo, la débil siempre participa de
+forma total en la relación 1:N.</p>
+<p>Tal como hemos comentado las cosas hasta ahora diremos que la entidad débil tiene una
+<strong>DEPENDENCIA EN EXISTENCIA</strong>[1].</p>
+<p>Pero podemos ir más allá, si además de la dependencia en existencia consideramos
+que para identificar una ocurrencia de la entidad débil nos hace falta la clave
+de la entidad regular de la cual depende. Si en una biblioteca tenemos más de un
+ejemplar de cada libro, tendríamos la entidad LIBRO (donde estaría toda la
+información: título, autor, editorial, ...) y otra que sería EJEMPLAR. Será
+lógico que para identificar un determinado ejemplar utilicemos el código del
+libro más el número de ejemplar.</p>
+<p>Otro ejemplo podría ser el de PROVINCIAS y MUNICIPIOS. El código de la
+provincia consta de 2 cifras (Castellón es el 12). Para identificar un
+municipio se utilizan las 2 cifras del código de la provincia y 4 más para el
+municipio. Y hace falta el código de la provincia, porque si no se repetirían.</p>
+<p>Esta dependencia, aún más restrictiva que la de existencia, la llamaremos
+<strong>DEPENDENCIA EN IDENTIFICACIÓN</strong>. Para marcar esta dependencia pondremos
+<strong>ID</strong> al lado de la relación.</p>
+<p>En nuestro ejemplo, si consideramos que para identificar la entidad FAMILIAR
+es suficiente con el atributo Nombre, será en existencia (el caso de una compañía
+pequeña). Si consideramos que no es suficiente, será en identificación y la clave
+principal será el DNI del empleado más el Nombre del familiar.</p>
+<p>Representaremos la dependencia en existencia así (si consideramos que con el nombre
+del familiar tenemos bastante para identificar):</p>
+<p><img alt="" src="../T2_6_5.png" /></p>
+<p>Y la dependencia en identificación así (si consideramos que también hace falta
+el identificador del empleado, que es el DNI):</p>
+<p><img alt="" src="../T2_6_6.png" /></p>
+<p>Representaremos esta última de forma alternativa con el rombo de doble raya</p>
+<p><img alt="" src="../T2_6_7.png" /></p>
+<hr />
+<p>[1] En la práctica podríamos pensar que toda entidad que participa de forma
+total en una relación es débil como mínimo en existencia. Por ejemplo: la
+participación total de Familiar quiere decir que todo familiar lo es de un empleado; la
+dependencia en existencia quiere decir que no puede existir un familiar sin
+el empleado. Como vemos la diferencia es muy sutil. A pesar de esto intentaremos
+hacer el esfuerzo de diferenciar ambos casos, porque en el siguiente tema sí que nos
+llevará a dos maneras de proceder diferentes.</p>
+<h2 id="63-generalizacion-y-herencia">6.3 Generalización y herencia</h2>
+<p>Vamos a comentar, bastante por encima, otro aspecto recogido en el Modelo E/R
+Extendido. Y es cuando una entidad se puede subdividir en otras. Por ejemplo
+podríamos refinar la entidad EMPLEADO en JEFES, SECRETARIOS y TRABAJADORES.</p>
+<p>Empleado sería el <strong>SUPERTIPO</strong> o <strong>SUPERCLASE</strong> y los otros los
+<strong>SUBTIPOS</strong>. EMPLEADO sería la <strong>GENERALIZACIÓN</strong> de los otros. Y los otros
+serían la <strong>ESPECIALIZACIÓN</strong> de EMPLEADO.</p>
+<p><img alt="" src="../T2_6_7_2.png" /></p>
+<p>Un aspecto importante es la <strong>HERENCIA</strong>, que consiste en que los subtipos
+heredarán los atributos del supertipo, de manera que no hará falta repetirlos.
+Únicamente se tendrán que declarar los atributos específicos de la subclase (en JEFE
+podríamos tener la opinión de su departamento; en SECRETARIO número de pulsaciones
+por segundo o conocimientos de informática; en TRABAJADOR si está dispuesto a hacer
+horas extras).</p>
+<p>Hay más de una clase de especialización dependiendo de dos criterios:</p>
+<ul>
+<li>
+<p>Si se <strong>solapan</strong> (una ocurrencia de la superclase puede pertenecer a más de una subclase) o son <strong>disjuntas</strong>(una ocurrencia de la superclase solo puede pertenecer a una subclase). Por ejemplo los empleados especializados por turno de trabajo (mañana, tarde, noche), puede darse el caso de que algún trabajador trabaje mañana y tarde de forma no intensiva (atención al público), y por tanto sería solapada. Un ejemplo de especialización no solapada sería la especialización por tipo de trabajo (jefe, secretario, trabajador), donde un empleado no puede pertenecer a dos subclases.</p>
+</li>
+<li>
+<p>Si es <strong>total</strong> (todas las ocurrencias del supertipo pertenecen a algún subtipo) o <strong>parcial</strong>. Un ejemplo de total sería una especialización por dedicación a la empresa (completa o no completa). Un ejemplo de parcial sería la especialización por tipo de trabajo (jefe, secretario, trabajador) ya que podría haber algún trabajador que no coincida (un asesor,...) </p>
+</li>
+</ul>
+<p>No vamos a insistir mucho en este tema porque además, en el tratamiento
+posterior (cuando pasemos al Modelo Relacional), a veces se representan todas
+las entidades, pero a veces por motivos prácticos se simplifica (suprimiendo bien
+el supertipo, bien los subtipos).</p>
+<h3 id="aplicacion-al-ejemplo_1">Aplicación al ejemplo</h3>
+<p>El ejemplo, considerando únicamente los subtipos <strong>JEFE</strong> y <strong>TRABAJADOR</strong>
+de <strong>EMPLEADO</strong>, quedaría así:</p>
+<p><img alt="" src="../esp2.png" /></p>
+<p>Donde "<strong>T,D</strong> " que está dentro del triángulo significa que la especialización es
+Total y Disjunta</p>
+<p>Licenciado bajo la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Licencia Creative Commons Reconocimiento NoComercial
+CompartirIgual 3.0</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../5_relaciones_de_grado_mayor_que_dos/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5. Relaciones de grado mayor que dos">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                5. Relaciones de grado mayor que dos
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../7_restricciones_externas/" class="md-footer__link md-footer__link--next" aria-label="Next: 7. Restricciones externas">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                7. Restricciones externas
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.integrate", "navigation.footer", "navigation.path"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

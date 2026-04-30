@@ -1,0 +1,1881 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://asalvadorc.github.io/Modelado_BD/Model_Relacional/4_transformacion_del_m_er_al_m_relacional/">
+      
+      
+        <link rel="prev" href="../3_restricciones/">
+      
+      
+        <link rel="next" href="../5_lenguajes_relacionales/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>4. Transformación del M. E/R al M. Relacional - BD - Modelado de Bases de Datos</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-transformacion-del-m-er-al-m-relacional" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="BD - Modelado de Bases de Datos" class="md-header__button md-logo" aria-label="BD - Modelado de Bases de Datos" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BD - Modelado de Bases de Datos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Transformación del M. E/R al M. Relacional
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Model_E-R/objetivos_y_conocimientos_previos/" class="md-tabs__link">
+          
+  
+  
+  Modelo Entidad-Relación
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../objetivos_y_conocimientos_previos/" class="md-tabs__link">
+          
+  
+  
+  Modelo Relacional
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Normalizacion/objetivos/" class="md-tabs__link">
+          
+  
+  
+  Normalización
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BD - Modelado de Bases de Datos" class="md-nav__button md-logo" aria-label="BD - Modelado de Bases de Datos" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    BD - Modelado de Bases de Datos
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo Entidad-Relación
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modelo Entidad-Relación
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/objetivos_y_conocimientos_previos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetivos y conocimientos previos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/1_introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/2_ejemplo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Ejemplo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/3_las_entidades_del_modelo_er/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Las Entidades del Modelo E/R
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/ejercicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/4_las_relaciones_del_modelo_er/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Las Relaciones del Modelo E/R
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/ejercicios0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/5_relaciones_de_grado_mayor_que_dos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Relaciones de grado mayor que dos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/6_modelo_er_extendido/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Modelo E/R Extendido
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/7_restricciones_externas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Restricciones externas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/ejercicios1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Model_E-R/informacion_adicional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Información adicional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo Relacional
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modelo Relacional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objetivos_y_conocimientos_previos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetivos y conocimientos previos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_estructura_del_modelo_relacional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Estructura del Modelo Relacional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_restricciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Restricciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Transformación del M. E/R al M. Relacional
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Transformación del M. E/R al M. Relacional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-entidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Entidades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-relaciones-1n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Relaciones 1:N
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-relaciones-mn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Relaciones M:N
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-relaciones-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Relaciones 1:1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-entidades-debiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Entidades débiles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-resumen-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Resumen dependencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47-relaciones-ternarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Relaciones ternarias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48-especializaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 Especializaciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49-restricciones-externas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 Restricciones externas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#410-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.10 Ejemplo
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_lenguajes_relacionales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Lenguajes relacionales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_ejercicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normalización
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Normalización
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/objetivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Objetivos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/1_introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introducción
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/2_primera_forma_normal_1fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Primera Forma Normal (1FN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/3_dependencia_funcional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Dependencia Funcional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/4_segunda_forma_normal_2fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Segunda Forma Normal (2FN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/5_dependencia_funcional_transitiva/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Dependencia Funcional Transitiva
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/6_tercera_forma_normal_3fn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Tercera Forma Normal (3FN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/7_forma_normal_boycecodd_fnbc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Forma Normal Boyce-Codd (FNBC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/Ejemplo_completo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejemplo Completo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/resumen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Normalizacion/ejercicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ejercicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Inicio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../objetivos_y_conocimientos_previos/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Modelo Relacional
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="4-transformacion-del-m-er-al-m-relacional">4. Transformación del M. E/R al M. Relacional</h1>
+<p>A continuación veremos las reglas de transformación del esquema en el Modelo E/R al Modelo Relacional.</p>
+<p>De esta manera continuamos el proceso de diseño de una Base de Datos. En el Tema 2 hemos aprendido a hacer el esquema en el Modelo Entidad-Relación. Ahora lo traduciremos al Modelo Relacional, y ya se podrá implementar en cualquier SGBD Relacional. Faltaría solo el proceso de Normalización (tema 4) para terminar de dejar las tablas perfectamente diseñadas. De todas formas las Bases de Datos que diseñemos nosotros, con el proceso descrito anteriormente, tendrán unas tablas muy "normalizadas", siempre que diseñemos bien.</p>
+<h2 id="41-entidades">4.1 Entidades</h2>
+<p>Toda entidad se transformará en una tabla, con todos sus atributos, que se considerarán como simples. Se elige uno (o un conjunto) como clave principal, y lo denotaremos subrayándolo. Las entidades débiles las estudiaremos mejor más adelante.</p>
+<p>En nuestro ejemplo, como teníamos 4 entidades, nos saldrán de momento 4 tablas:</p>
+<p><img alt="" src="../T3_4_1_1.png" /></p>
+<p>No consideraremos los atributos multivaluados. Los trataremos y solucionaremos en el tema siguiente, el de <strong>Normalización</strong>.</p>
+<h2 id="42-relaciones-1n">4.2 Relaciones 1:N</h2>
+<p>Por cada relación 1:N entre las entidades <strong>A</strong> y <strong>B</strong>, donde <strong>A</strong> es la que participa con grado de cardinalidad 1, y <strong>B</strong> con grado N, se incluye un nuevo campo en <strong>B</strong> (del mismo tipo que la clave principal de <strong>A</strong>) que además será <strong>clave externa</strong> que apuntará a <strong>A</strong>, más concretamente a la clave principal de <strong>A</strong>. En muchas ocasiones al campo nuevo de <strong>B</strong> se le pone el mismo nombre que a la clave principal de <strong>A</strong>, pero no es necesario, depende del gusto de cada uno.</p>
+<p>También se incluirán en <strong>B</strong> todos los posibles atributos de la relación.</p>
+<p>La siguiente animación intenta explicarlo mejor:</p>
+<iframe src="https://slides.com/aliciasalvador/bd-t3-exemple_clau_externa/embed" width="576" height="420" title="Copy of BD-T3-exemple_clau_externa" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><br></br>
+Si además la entidad que participa con grado N lo hace de forma <strong>total</strong> (como en la figura de abajo), la clave externa <strong>no puede ser nula</strong> (es decir siempre ha de tener un valor).</p>
+<p><img alt="" src="../T3_4_2_1.png" /></p>
+<p>En nuestro ejemplo:</p>
+<ul>
+<li>
+<p>Por la relación <strong><em>Pertenece</em></strong> (figura de arriba) incluiremos el atributo <strong>departamento</strong> a <strong>Empleado</strong>, que además deberá ser no nulo.</p>
+</li>
+<li>
+<p>Por la relación <strong><em>Controla</em></strong> incluiremos el atributo <strong>departamento</strong> a <strong>Proyecto</strong> (no nulo).</p>
+</li>
+<li>
+<p>Por la relación <strong><em>Supervisa</em></strong> incluiremos el atributo <strong>supervisor</strong> a <strong>Empleado</strong> (es reflexiva), pero este sí que puede ser nulo. Aunque parezca extraño, un campo puede ser clave externa que apunta a la clave principal de la misma tabla.</p>
+</li>
+<li>
+<p>Por la relación <strong><em>Tiene</em></strong> entre empleado y familiar, incluiremos en <strong>FAMILIAR</strong> el atributo <strong>dni_e</strong>, pero como Familiar es débil la veremos mejor un poco más adelante.</p>
+</li>
+</ul>
+<p><img alt="" src="../T3_4_2_2.png" /></p>
+<h2 id="43-relaciones-mn">4.3 Relaciones M:N</h2>
+<p>Por cada relación <strong>M:N</strong> construiremos una <strong>nueva tabla</strong> donde se incluirán como clave externa las claves principales de las dos entidades, y además su combinación constituirá (o formará parte de) la clave principal. Incluiremos también los posibles atributos de la relación.</p>
+<p>En el ejemplo:</p>
+<p><img alt="" src="../T3_4_3_1.png" /></p>
+<p>Cada vez que nos encontramos con una relación M:N y la traducimos por una nueva tabla tendremos que <strong>preguntarnos si es suficiente con la clave principal</strong> formada por las dos claves externas, o si hace falta añadir otro campo. Tenemos que ser conscientes de que la clave principal no pueda repetirse, que haya 2 filas con la misma clave principal. Así, en el ejemplo, nos tendríamos que hacer la siguiente pregunta: ¿puede un empleado trabajar en el mismo proyecto más de una vez? En este caso la respuesta es negativa, y por tanto es suficiente con esta clave principal.</p>
+<p>Pero supongamos que la respuesta es que sí que puede trabajar más de una vez a lo largo del tiempo. En este caso sería una especie de histórico, donde haría falta, además, saber cuándo empieza y cuándo termina de trabajar en un proyecto un determinado trabajador (serían atributos de la relación):</p>
+<p><img alt="" src="../T3_4_3_2.png" /></p>
+<p>Entonces, como no es suficiente con la clave principal formada por las dos claves externas, incluiremos otro campo en la clave principal. Parece que lo más adecuado sería <strong>Fecha_c</strong> (ya no se puede dar el caso de que el mismo trabajador trabaje más de una vez en el mismo proyecto, empezando el mismo día)</p>
+<p><img alt="" src="../T3_4_3_3.png" /></p>
+<p>Pero por otro lado, las claves principales muy largas no son operativas, y aunque la traducción literal sea como hemos dicho, por motivos prácticos podemos cambiar la clave principal. Consideraremos que el número máximo de campos en la clave principal es de 3. 4 ya son demasiados, y entonces buscaremos otra clave principal (un código de trabajo, por ejemplo). Las claves externas continuarían siéndolo.</p>
+<h2 id="44-relaciones-11">4.4 Relaciones 1:1</h2>
+<p>No hay una forma única de traducir estas relaciones. Tres serán las posibles traducciones, según la participación total o parcial de las entidades en la relación, y también según lo que nos diga el "<em>sentido común</em>".</p>
+<ul>
+<li>Si de las dos entidades que entran en la relación, <strong>A</strong> y <strong>B</strong>, una de ellas y solo una, participa de forma total, por ejemplo <strong>B</strong>, traduciremos la relación 1:1 como una <strong>clave externa</strong> en la tabla correspondiente a la entidad que participa de forma total (<strong>B</strong>). Podemos obligar también a que este campo que será clave externa sea <strong>no nulo</strong> (ya que todas las ocurrencias de <strong>B</strong> entran en la relación). También podemos hacer que este campo sea <strong>único</strong> (no se podrá repetir, ya que si se pudiese repetir sería una relación 1:N). Además, incluiremos en <strong>B</strong> todos los posibles atributos de la relación. </li>
+</ul>
+<blockquote>
+<p>Por ejemplo, la relación <strong><em>dirige</em></strong>, que es 1:1 entre <strong>EMPLEADO</strong> y <strong>DEPARTAMENTO</strong>:</p>
+<p><img alt="" src="../T3_4_4_1.png" /><br />
+</p>
+<p>Como la entidad de la derecha participa de forma total, elegiremos <strong>DEPARTAMENTO</strong>:</p>
+<p><img alt="" src="../T3_4_4_2.png" /><br />
+</p>
+<p>Lo hacemos de esta manera porque todos los departamentos tienen director, pero no todos los empleados son directores. Si pusiéramos la clave externa en la tabla <strong>EMPLEADO</strong> (se llamaría por ejemplo <strong>dep_que_dirige</strong>) muchas veces estaría vacío, ya que relativamente son pocos los empleados que dirigen un departamento.</p>
+<p>Veamos otro ejemplo de relación 1:1, el de las mariposas. Teníamos una relación 1:1 entre <strong>PERSONA</strong> y <strong>COLECCIÓN</strong></p>
+<p><img alt="" src="../T3_4_4_3.png" /><br />
+</p>
+<p>Elegiríamos <strong>COLECCIÓN</strong>, ya que entra de forma plena o total en la relación.</p>
+<p><img alt="" src="../T3_4_4_4.png" /><br />
+</p>
+</blockquote>
+<ul>
+<li>Si las dos entidades participan de forma total, se puede considerar todo (las dos entidades y la relación, con sus posibles atributos) como una sola tabla. En la práctica esto será bastante extraño, porque ya lo habríamos considerado una sola entidad. Por ejemplo, consideremos que todas las personas que estudiamos tienen una colección: </li>
+</ul>
+<blockquote>
+<p><img alt="" src="../T3_4_4_5.png" /><br />
+</p>
+<p>Entonces podríamos considerar una única tabla, que contenga los datos de la persona y de su colección:</p>
+<p><img alt="" src="../T3_4_4_6.png" /><br />
+</p>
+<p>De todas formas, puede que nos interese (para separar claramente los dos tipos de información) dos tablas. Entonces podríamos traducirlo como en el primer punto, con una clave externa (no nula) en una de las dos tablas, y tendríamos que elegir la tabla que <em>menos</em> se utilice.</p>
+</blockquote>
+<ul>
+<li>Si las dos entidades participan de forma parcial, dado que si ponemos una clave externa en una de las dos, muchas veces tendrá valor nulo, podemos traducirla como una nueva tabla que marque la relación, donde habrá una tupla por cada relación entre dos ocurrencias. Incluiríamos en la nueva tabla los posibles atributos de la relación. </li>
+</ul>
+<blockquote>
+<p>En el ejemplo podría ser que las colecciones pertenecen a una persona particular o a una institución (no tienen propietario):</p>
+<p><img alt="" src="../T3_4_4_7.png" /></p>
+<p>Quedaría:</p>
+<p><img alt="" src="../T3_4_4_8.png" /></p>
+<p>Pero como comentábamos al principio, tendremos que aplicar el sentido común, ya que quizás una de las dos podría participar de forma "casi" total (por ejemplo, casi todas las colecciones son de una persona). Entonces podría ser mejor traducirlo como en el primer caso, poniendo la clave externa en la que participa de forma "casi" total, ya que esta tendrá relativamente pocos valores nulos, y sería más costoso mantener otra tabla. Evidentemente la clave externa sí que podría ser nula, en este caso.</p>
+</blockquote>
+<p>Resumiendo, <strong>una relación 1:1 casi siempre la traduciremos como una clave externa en la tabla que participa en la relación de forma total o casi total</strong> (o la que previsiblemente tiene más ocurrencias en la relación)</p>
+<h2 id="45-entidades-debiles">4.5 Entidades débiles</h2>
+<p>Las entidades débiles, como mínimo dependen de otra, podremos ser más restrictivos que las otras. Una entidad siempre es débil a través, como mínimo, de una relación que la comunica con la entidad principal. Además participa de forma total (como no puede existir sin la otra, toda ocurrencia está en la relación).</p>
+<p>Por lo tanto, toda entidad débil tendrá una clave externa, que apunta a la principal y será no nula. Pero aún podemos ir más allá:</p>
+<ul>
+<li>
+<p><strong>Dependencia en existencia</strong>: haremos que la clave externa <strong>borre y actualice en cascada</strong>, ya que si deja de existir la principal no tiene sentido la débil.</p>
+</li>
+<li>
+<p><strong>Dependencia en identificación</strong>: además de borrar y actualizar en cascada, la clave externa <strong>formará parte de la clave principal</strong>.</p>
+</li>
+</ul>
+<blockquote>
+<p>Si la relación por la cual depende en identificación es 1:N, hará falta otro campo en la clave principal.</p>
+<p>Si es 1:1, con la clave externa es suficiente como clave principal</p>
+</blockquote>
+<p>En nuestro ejemplo quedará así:</p>
+<p><img alt="" src="../T3_4_5_1.png" /></p>
+<h2 id="46-resumen-dependencias">4.6 Resumen dependencias</h2>
+<p>Vamos a hacer un cuadro resumen con distintos grados de dependencia entre dos relaciones y cómo se traduciría al Modelo Relacional:</p>
+<p><img alt="" src="../T3_4_6_1.png" /></p>
+<p>Por otro lado, si nos encontramos una entidad débil que depende en identificación a través de una relación 1:1, es suficiente con la clave principal de A como clave principal de B</p>
+<p><img alt="" src="../T3_4_6_2.png" /></p>
+<p>Otra cuestión que puede llevar a confusión es el caso de las claves externas formadas por 2 campos. Nos basaremos en el ejemplo de siempre, en la tabla FAMILIAR, ya que tiene una clave principal formada por 2 campos. Supongamos que hay en el Modelo Entidad-Relación una tabla que depende de ella, como podría ser comunicaciones que se le han hecho (cartas). Las entidades y la relación entre ellas podría ser esta:</p>
+<p><img alt="" src="../T3_4_6_3.png" /></p>
+<p>Como la relación es de tipo 1:N la traduciremos por una clave externa en CARTAS. ¿Y cuál será la clave externa? Como la tabla FAMILIAR tiene una clave principal formada por 2 campos, tendremos que poner una clave externa formada por 2 campos. ¡Alerta! no serán 2 claves externas, sino una clave externa formada por 2 campos. Como siempre, representaremos la clave externa con un doble subrayado, que ahora abarcará los 2 campos.</p>
+<p><img alt="" src="../T3_4_6_4.png" /></p>
+<h2 id="47-relaciones-ternarias">4.7 Relaciones ternarias</h2>
+<p>En una relación ternaria o superior construiremos una nueva tabla, donde incluiremos como claves externas las claves primarias de todas las entidades, y además los atributos de la relación.</p>
+<p>Habitualmente, la clave principal de la nueva tabla será la combinación de todas las claves principales de las entidades. Ocasionalmente, si alguna entidad participa con cardinalidad 1, la clave principal de esta entidad no entraría a formar parte de la clave principal de la nueva tabla.</p>
+<p>Al igual que en el caso de las relaciones M:N, nos tendremos que preguntar si es suficiente con la clave primaria generada o si se tendrá que incluir algún otro campo.</p>
+<p>En el ejemplo que pusimos de relación ternaria, suponiendo los atributos de la relación la fecha de compra y la cantidad:</p>
+<p><img alt="" src="../T3_4_7_1.png" /></p>
+<p><img alt="" src="../T3_4_7_2.png" /></p>
+<p>Donde hemos puesto todas las claves externas formando parte de la clave principal, ya que todas entran con cardinalidad N. Pero no teníamos suficiente con esta clave principal, ya que el mismo departamento puede comprar el mismo artículo al mismo proveedor más de una vez. Como no teníamos suficiente, hemos puesto otro campo.</p>
+<p>Sería momento, seguramente, de sustituir la clave principal que está formada por 4 campos, ya que son demasiados.</p>
+<p>Pondríamos otra clave principal, pero las claves externas continuarían siéndolo, y además serían no nulas:</p>
+<p><img alt="" src="../T3_4_7_3.png" /></p>
+<h2 id="48-especializaciones">4.8 Especializaciones</h2>
+<p>Este aspecto, como en el caso de las relaciones 1:1, también tiene múltiples soluciones. El problema de las especializaciones es que, aunque de forma teórica la solución sea correcta, en la práctica supone muchas tablas y con un cierto grado de mantenimiento entre ellas. Por lo tanto, y aplicando el sentido común, muchas veces se hace una simplificación, quitando bien las subclases, bien la superclase, como veremos a continuación. Estas son las posibilidades:</p>
+<ul>
+<li>Transformar las especializaciones en tablas con la clave principal heredada y los atributos específicos (como si sustituyéramos la especialización en relaciones 1:1, con las subclases dependiendo en identificación de la superclase). Estaría también bien añadir un atributo a la superclase para poder saber de qué tipo es. En el ejemplo nos quedaría:</li>
+</ul>
+<p><img alt="" src="../T3_4_8_1.png" /></p>
+<ul>
+<li>Simplificar las subclases. Entonces todos los atributos de estas deberían pasar a la superclase. También se deberían pasar todas las relaciones que afectan a las subclases, "retocando" las participaciones totales (que ahora ya no lo serían). Ahora será obligatorio tener el campo que distingue el tipo (si no, perderíamos esta información).</li>
+</ul>
+<p><img alt="" src="../T3_4_8_2.png" /></p>
+<ul>
+<li>Simplificar la superclase. Entonces todos los atributos de esta pasarían a cada una de las subclases. También pasarían las relaciones a cada una de estas, "retocando" las participaciones totales.</li>
+</ul>
+<p><img alt="" src="../T3_4_8_3.png" /></p>
+<h2 id="49-restricciones-externas">4.9 Restricciones externas</h2>
+<p>Ya hemos comentado que restricciones externas son restricciones que no se pueden expresar por medio del modelo de datos. Entonces las expresaremos de palabra.</p>
+<p>Normalmente, las restricciones externas del Modelo E/R continuarán siéndolo en el Modelo Relacional, porque tampoco se podrán expresar. En nuestro ejemplo teníamos las restricciones externas del Modelo E/R:</p>
+<blockquote>
+<p><strong>Rex1</strong>: El jefe de un departamento debe ser miembro de este.</p>
+<p><strong>Rex2</strong>: Un empleado solo puede trabajar en proyectos coordinados por su departamento.</p>
+</blockquote>
+<p>Esto tampoco se puede expresar con el Modelo Relacional, por lo tanto las mantendremos.</p>
+<p>Aparte, se pueden crear más restricciones externas, porque con el Modelo Relacional no se puede expresar todo lo que se podía expresar con el Modelo E/R. Por ejemplo, en la relación:</p>
+<p><img alt="" src="../T3_4_9_1.png" /></p>
+<p>ya hemos comentado que dará lugar, aparte de las tablas de las entidades, a otra tabla:</p>
+<p><img alt="" src="../T3_4_9_2.png" /></p>
+<p>donde <strong>dni</strong> y <strong>num_p</strong> son claves externas. Pero la entidad proyecto participa de forma total en la relación, es decir, en todo proyecto debe haber un empleado trabajando. ¿Cómo controlamos esto? Pues es una nueva restricción externa que la podríamos formular así:</p>
+<blockquote>
+<p><strong>RexR3</strong>: Todo proyecto debe tener como mínimo un empleado trabajando en él.</p>
+</blockquote>
+<p>Las participaciones totales que nos supondrán una restricción externa son:</p>
+<ul>
+<li>
+<p>En una relación <strong>1:N</strong>, una participación total de la entidad que participa con grado 1.</p>
+</li>
+<li>
+<p>En una relación <strong>M:N</strong>, cualquier participación total (si las dos participan de forma total, entonces habrá dos restricciones externas).</p>
+</li>
+<li>
+<p>En una relación <strong>1:1</strong>, depende de la manera de traducirse.</p>
+</li>
+</ul>
+<p>La manera de implementar las restricciones externas será por medio de un TRIGGER, que se active cuando haya una actualización (inserción, modificación o borrado) que afecte a la restricción externa. Por ejemplo, en la restricción <strong>RexR3</strong> los momentos importantes son después de insertar un nuevo proyecto, y antes de eliminar o modificar en la tabla <strong>Trabaja</strong> (por si un proyecto se queda sin gente trabajando en él).</p>
+<p>Las acciones a desarrollar podrían ser sacar un aviso, o obligar a insertar como mínimo una tupla en la tabla <strong>Trabaja</strong>, en el caso de la inserción de un nuevo proyecto; en el caso de modificación o eliminación en <strong>Trabaja</strong> podría impedirse esta actualización.</p>
+<p>En nuestro ejemplo tendremos las restricciones externas al Modelo Relacional:</p>
+<blockquote>
+<p><strong>RexR1</strong>: El jefe de un departamento debe ser miembro de este.</p>
+<p><strong>RexR2</strong>: Un empleado solo puede trabajar en proyectos coordinados por su departamento.</p>
+<p><strong>RexR3</strong>: Todo proyecto debe tener como mínimo un empleado trabajando en él.</p>
+</blockquote>
+<h2 id="410-ejemplo">4.10 Ejemplo</h2>
+<p>Vamos a ver cómo quedará definitivamente la traducción del ejemplo que estamos arrastrando desde el Tema 2. Daremos 2 versiones, teniendo en cuenta o no la especialización de que el trabajador puede ser jefe o trabajador normal.</p>
+<p>Sin tener en cuenta la especialización tendremos esta solución:</p>
+<p><img alt="" src="../T3_4_10_1.png" /></p>
+<p>este vídeo explica todo el proceso paso a paso:</p>
+<iframe src="https://slides.com/aliciasalvador/bd-t3-video_exemple_er_rel/embed" width="600" height="500" title="Copy of BD-T3-video_exemple_er_rel" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<p>Y esta sería la forma alternativa de representarlo:</p>
+<p><img alt="" src="../T3_4_10_1_5.png" /></p>
+<p>Y teniendo en cuenta la especialización:</p>
+<p><img alt="" src="../T3_4_10_2.png" /></p>
+<p>que este vídeo explica en los puntos diferentes a la anterior solución</p>
+<iframe src="https://slides.com/aliciasalvador/bd-t3-video_exemple_er_rel_esp/embed" width="600" height="500" title="Copy of BD-T3-video_exemple_er_rel_esp" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<p>Y aquí tendríamos la representación alternativa:</p>
+<p><img alt="" src="../T3_4_10_2_5.png" /></p>
+<p>Licenciado bajo la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Licencia Creative Commons Reconocimiento NoComercial CompartirIgual 3.0</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../3_restricciones/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3. Restricciones">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                3. Restricciones
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../5_lenguajes_relacionales/" class="md-footer__link md-footer__link--next" aria-label="Next: 5. Lenguajes relacionales">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                5. Lenguajes relacionales
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.integrate", "navigation.footer", "navigation.path"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
