@@ -6,8 +6,7 @@
 </video>
 -->
 
-
-![alt text](image.png)
+![alt text](image-1.png)
 
 Bienvenidos al material de apoyo y documentación del curso de Modelado de Datos. Utiliza el menú superior para acceder a contenidos sobre diagramas entidad-relación, modelo relacional y normalización.
 
