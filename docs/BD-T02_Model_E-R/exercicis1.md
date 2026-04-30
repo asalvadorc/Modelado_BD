@@ -1,78 +1,78 @@
-# Exercicis
+# Ejercicios
 
 
-## ![](icon_activity.gif) Exercici 3
+## ![](icon_activity.gif) Ejercicio 3
 
-Dissenyar un esquema E/R que arreplegue informació sobre una universitat. Es
+Diseñar un esquema E/R que recoja información sobre una universidad. Se
 considera que:
 
-  * Els departaments (com per exemple el Departament de _Llenguatges i Sistemes Informàtics_) poden estar en una única facultat o ser interfacultatius, agrupant en aquest cas càtedres que pertanyen a facultats distintes.
+  * Los departamentos (como por ejemplo el Departamento de _Lenguajes y Sistemas Informáticos_) pueden estar en una única facultad o ser interfacultativos, agrupando en este caso cátedras que pertenecen a facultades distintas.
   
 
-  * Una càtedra (per exemple la de _Bases de Dades_) pertany a un únic departament.
+  * Una cátedra (por ejemplo la de _Bases de Datos_) pertenece a un único departamento.
   
 
-  * Una càtedra està en una única facultat.
+  * Una cátedra está en una única facultad.
   
 
-  * Un professor està sempre assignat a un únic departament i adscrit a una o més d'una càtedra. Pot canviar de càtedra però no de departament. Ens interessa la data en què un professor és adscrit a una càtedra.
+  * Un profesor está siempre asignado a un único departamento y adscrito a una o más de una cátedra. Puede cambiar de cátedra pero no de departamento. Nos interesa la fecha en que un profesor es adscrito a una cátedra.
   
 
-  * Existeixen àrees de coneixement (com per exemple l'àrea d'_Informàtica_ , que inclou els departaments de _Llenguatges i Sistemes Informàtics_ i de _Enginyeria i Ciència dels Computadors_) i tot departament tindrà una única àrea de coneixement.
+  * Existen áreas de conocimiento (como por ejemplo el área de _Informática_, que incluye los departamentos de _Lenguajes y Sistemas Informáticos_ y de _Ingeniería y Ciencia de los Computadores_) y todo departamento tendrá una única área de conocimiento.
 
 
-## ![](icon_activity.gif) Exercici 4
+## ![](icon_activity.gif) Ejercicio 4
 
-L'anàlisi de requisits d'una determinada xarxa bancària és el següent:
+El análisis de requisitos de una determinada red bancaria es el siguiente:
 
-  * De cada banc ens interessa el nom i l'adreça de la seu social. Hi ha un codi distint per a cada entitat bancària.
+  * De cada banco nos interesa el nombre y la dirección de la sede social. Hay un código distinto para cada entidad bancaria.
 
-  * Cada banc té distintes sucursal, que s'identifiquen _internament_ per un codi.
+  * Cada banco tiene distintas sucursales, que se identifican _internamente_ por un código.
 
-  * Cada sucursal té assignats una sèrie de comptes corrents, que s'identifiquen _internament_ per un codi. Un compte pot pertànyer a un o més d'un client. És possible que cada client puga fer operacions distintes amb els comptes. Així podria ser que, encara que dos clients siguen titulars d'un mateix compte, només un tinga facultat per tancar-lo.
+  * Cada sucursal tiene asignados una serie de cuentas corrientes, que se identifican _internamente_ por un código. Una cuenta puede pertenecer a uno o más de un cliente. Es posible que cada cliente pueda hacer operaciones distintas con las cuentas. Así podría ser que, aunque dos clientes sean titulares de una misma cuenta, solo uno tenga facultad para cerrarla.
 
-  * Cada client, que s'identifica pel seu DNI, pot tenir més d'un compte, i evidentment privilegis distints en cadascun d'ells.
+  * Cada cliente, que se identifica por su DNI, puede tener más de una cuenta, y evidentemente privilegios distintos en cada una de ellas.
 
-  * Cada compte pot tenir domiciliacions associades a ell.
+  * Cada cuenta puede tener domiciliaciones asociadas a ella.
 
-  * Les sucursals poden atorgar préstecs als clients, que no estaran associats als comptes. Cada préstec s'atorga a nom d'un únic client, i a un client se li pot atorgar més d'un préstec.
+  * Las sucursales pueden otorgar préstamos a los clientes, que no estarán asociados a las cuentas. Cada préstamo se otorga a nombre de un único cliente, y a un cliente se le puede otorgar más de un préstamo.
 
 
-## ![](icon_activity.gif) Exercici 5
+## ![](icon_activity.gif) Ejercicio 5
 
-Es vol mantenir informació sobre una **biblioteca** , on podem tenir de cada
-llibre més d'un exemplar, que a més es poden prestar, i que també ens
-interessa un històric de préstecs. L'anàlisi de requeriments seria el següent:
+Se quiere mantener información sobre una **biblioteca**, donde podemos tener de cada
+libro más de un ejemplar, que además se pueden prestar, y que también nos
+interesa un histórico de préstamos. El análisis de requerimientos sería el siguiente:
 
-  * Cada llibre (amb un determinat títol, ISBN, idioma, número d'edició i data d'edició) tracta només d'un tema, està editat per una única editorial, escrit per un o més autors, i disposarem d'uns quants exemplars. Dels exemplars sempre tindrem el número de registre, que l'identifica unívocament.
+  * Cada libro (con un determinado título, ISBN, idioma, número de edición y fecha de edición) trata solo de un tema, está editado por una única editorial, escrito por uno o más autores, y dispondremos de unos cuantos ejemplares. De los ejemplares siempre tendremos el número de registro, que lo identifica unívocamente.
 
-  * Els préstecs són dels exemplars dels llibres, que són les materialitzacions dels llibres. Un exemplar es pot prestar a un únic lector (del qual tindrem Dni, Nom, Adreça i Telèfon), i ens interessa la data en la qual s'ha prestat. Un lector pot tenir més d'un llibre prestat.
+  * Los préstamos son de los ejemplares de los libros, que son las materializaciones de los libros. Un ejemplar se puede prestar a un único lector (del cual tendremos Dni, Nombre, Dirección y Teléfono), y nos interesa la fecha en la cual se ha prestado. Un lector puede tener más de un libro prestado.
 
-  * A banda del préstec actual, voldrem saber en el passat a qui s'ha prestat. Per tant en l'històric de préstecs cada exemplar s'haurà prestat a molts lectors, i per a poder dur el seguiment ens interessa la data de préstec i la de tornada.
+  * Aparte del préstamo actual, querremos saber en el pasado a quién se ha prestado. Por tanto en el histórico de préstamos cada ejemplar se habrá prestado a muchos lectores, y para poder llevar el seguimiento nos interesa la fecha de préstamo y la de devolución.
 
-## ![](icon_activity.gif) Exercici 6
+## ![](icon_activity.gif) Ejercicio 6
 
-Realitzeu l'esquema E/R que arreplegue informació d'una associació
-d'afeccionats a les **papallones** , que volen guardar informació respecte a
-exemplars capturats bé per a la seua observació, bé per a ser inclosos en una
-col·lecció:
+Realizad el esquema E/R que recoja información de una asociación
+de aficionados a las **mariposas**, que quieren guardar información respecto a
+ejemplares capturados bien para su observación, bien para ser incluidos en una
+colección:
 
-  * Com en qualsevol ordre natural, un exemplar de papallona pertany a una espècie única. Una espècie pertany a un gènere únic, i un gènere a una família natural única.
+  * Como en cualquier orden natural, un ejemplar de mariposa pertenece a una especie única. Una especie pertenece a un género único, y un género a una familia natural única.
   
 
-  * Cada espècie de papallona té un nom científic únic, encara que el seu nom comú, que depèn de la comarca on s'ha agafat, també ens interessa.
+  * Cada especie de mariposa tiene un nombre científico único, aunque su nombre común, que depende de la comarca donde se ha cogido, también nos interesa.
   
 
-  * Ja siga per a l'observació o per a formar part d'una col·lecció, primer s'ha de capturar l'exemplar de papallona. Aquesta captura la realitza una única persona, i voldrem saber també en quin lloc (comarca) s'ha capturat. Si l'exemplar és destinat a l'observació voldrem saber la durada de l'observació.
+  * Ya sea para la observación o para formar parte de una colección, primero se tiene que capturar el ejemplar de mariposa. Esta captura la realiza una única persona, y querremos saber también en qué lugar (comarca) se ha capturado. Si el ejemplar es destinado a la observación querremos saber la duración de la observación.
   
 
-  * Una determinada persona només pot ser propietària d'una col·lecció, però els exemplars d'aquesta col·lecció poden haver estat capturats per altres persones.
+  * Una determinada persona solo puede ser propietaria de una colección, pero los ejemplares de esta colección pueden haber estado capturados por otras personas.
   
 
-  * Es vol mantenir informació de les famílies, gèneres i espècies de papallones encara que no s'hagen capturat exemplars dels mateixos.
+  * Se quiere mantener información de las familias, géneros y especies de mariposas aunque no se hayan capturado ejemplares de los mismos.
   
 
-  * Una papallona només pot pertànyer a una col·lecció, i una col·lecció està formada almenys per un exemplar. Tota papallona que pertany a una col·lecció tindrà un determinat valor. 
+  * Una mariposa solo puede pertenecer a una colección, y una colección está formada al menos por un ejemplar. Toda mariposa que pertenece a una colección tendrá un determinado valor. 
 
 <!--
 ## ![](icon_activity.gif) Exercici 7
@@ -98,6 +98,5 @@ trajecte (substituint l'estació origen i destí). Haurem de saber si l'estació
 
 -->
 
-Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
+Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
 CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
-

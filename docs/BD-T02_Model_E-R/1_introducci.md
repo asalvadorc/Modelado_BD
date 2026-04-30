@@ -1,43 +1,41 @@
-# 1. Introducció
+# 1. Introducción
 
+El **Modelo Entidad-Relación** (**M E/R**) es un modelo de alto nivel, que nos
+permitirá representar el mundo que queremos con un lenguaje, una estructura más
+cercana a nosotros. Lo utilizaremos dentro de todo el proceso de creación de la Base
+de Datos, que consistirá en:
 
-El **Model Entitat-Relació** (**M E/R**) és un model d'alt nivell, que ens
-permetrà representar el món que volem amb un llenguatge, una estructura més
-propera a nosaltres. L'utilitzarem dins de tot el procés de creació de la Base
-de Dades, que consistirà en:
-
-  * A partir de la realitat, estudiar-la (investigant, entrevistant els usuaris, ...) i fer l'**Anàlisi de Requeriments** , és a dir, què es vol. El resultat serà un conjunt de requeriments redactats de forma concisa. 
-
-  
-
-  * A partir de l'Anàlisi de Requeriments, dissenyar l'Esquema Conceptual de la Base de Dades amb un model d'alt nivell (el **Model E/R**). 
+  * A partir de la realidad, estudiarla (investigando, entrevistando a los usuarios, ...) y hacer el **Análisis de Requerimientos**, es decir, qué se quiere. El resultado será un conjunto de requerimientos redactados de forma concisa. 
 
   
 
-  * Traduir l'esquema conceptual, és a dir el diagrama E/R, al Model Relacional, obtenint l'Esquema Lògic.
-  
-
-  * Implementar l'esquema lògic en un SGBD comercial. Afegir les coses necessàries (índex, retocar camps, ...) per a completar l'esquema físic, així com les vistes per a tots els usuaris (esquema extern). 
+  * A partir del Análisis de Requerimientos, diseñar el Esquema Conceptual de la Base de Datos con un modelo de alto nivel (el **Modelo E/R**). 
 
   
-Un esquema de tot el procés seria el següent:
+
+  * Traducir el esquema conceptual, es decir el diagrama E/R, al Modelo Relacional, obteniendo el Esquema Lógico.
+  
+
+  * Implementar el esquema lógico en un SGBD comercial. Añadir las cosas necesarias (índices, retocar campos, ...) para completar el esquema físico, así como las vistas para todos los usuarios (esquema externo). 
+
+  
+Un esquema de todo el proceso sería el siguiente:
 
 ![](analisis.png)
 
-En realitat, en sistemes grans, no podem separar l'anàlisi de les dades de
-l'anàlisi dels processos a fer amb les dades. Aleshores, paral·lel al disseny
-conceptual, és a dir, després de l'anàlisi de requeriments aniria l'Anàlisi
-Funcional (línia discontínua), encarregat de veure quins processos generals
-són necessaris en el sistema. Nosaltres no filarem tan prim.
+En realidad, en sistemas grandes, no podemos separar el análisis de los datos del
+análisis de los procesos a hacer con los datos. Entonces, paralelo al diseño
+conceptual, es decir, después del análisis de requerimientos iría el Análisis
+Funcional (línea discontinua), encargado de ver qué procesos generales
+son necesarios en el sistema. Nosotros no hilaremos tan fino.
 
-En el Model E/R estudiarem les entitats o objectes del nostre univers, la
-nostra realitat, i les relacions que hi haurà entre les distintes entitats.
+En el Modelo E/R estudiaremos las entidades u objetos de nuestro universo, nuestra
+realidad, y las relaciones que habrá entre las distintas entidades.
 
-El Model E/R el va proposar Peter P. Chen en 1976. Posteriorment molts autors
-van aportar més coses, creant l'anomenat Model E/R Estès (M EE/R), encara que
-en realitat hi ha tota una gamma de models estesos.
+El Modelo E/R lo propuso Peter P. Chen en 1976. Posteriormente muchos autores
+aportaron más cosas, creando el llamado Modelo E/R Extendido (M EE/R), aunque
+en realidad hay toda una gama de modelos extendidos.
 
 
-Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
+Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
 CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
-

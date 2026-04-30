@@ -1,9 +1,9 @@
-# 4. Les Relacions del Model E/R
+# 4. Las Relaciones del Modelo E/R
 
-Encara no hem relacionat les entitats entre elles, i per tant encara no hem
-dit que tal treballador pertany a tal departament (Joan Peris està en
-Comptabilitat, per exemple), o que tal treballador està en tal projecte
-dedicant-li tantes hores setmanals.
+Todavía no hemos relacionado las entidades entre ellas, y por tanto todavía no hemos
+dicho que tal trabajador pertenece a tal departamento (Juan Pérez está en
+Contabilidad, por ejemplo), o que tal trabajador está en tal proyecto
+dedicándole tantas horas semanales.
 <!--
 <video width="320" height="240" controls>
   <source src="T02_Peli2.mp4" type="video/mp4">
@@ -12,49 +12,49 @@ dedicant-li tantes hores setmanals.
 -->
 
 <p></p>
-## 4.1 Relació
+## 4.1 Relación
 
-Encara no hem relacionat les entitats entre elles, i per tant encara no hem
-dit que tal treballador pertany a tal departament (Joan Peris està en
-Comptabilitat, per exemple), o que tal treballador està en tal projecte
-dedicant-li tantes hores setmanals.
+Todavía no hemos relacionado las entidades entre ellas, y por tanto todavía no hemos
+dicho que tal trabajador pertenece a tal departamento (Juan Pérez está en
+Contabilidad, por ejemplo), o que tal trabajador está en tal proyecto
+dedicándole tantas horas semanales.
 
-**RELACIÓ** és una associació o correspondència entre entitats.
+**RELACIÓN** es una asociación o correspondencia entre entidades.
 
-El **TIPUS DE RELACIÓ** serà l’estructura genèrica, l’associació entre dos
-tipus d’entitat, i englobarà les **OCURRÈNCIES DE RELACIÓ** , que relacionaran
-ocurrències de les entitats (Joan Peris pertany al departament de
-Comptabilitat, Pilar Gomis al de Vendes, ...).
+El **TIPO DE RELACIÓN** será la estructura genérica, la asociación entre dos
+tipos de entidad, y englobará las **OCURRENCIAS DE RELACIÓN**, que relacionarán
+ocurrencias de las entidades (Juan Pérez pertenece al departamento de
+Contabilidad, Pilar Gomis al de Ventas, ...).
 
-Representarem la relació per un rombe, amb el nom de la relació a l’interior.
-Habitualment serà un verb que descriu la relació entre les dues entitats.
-Unirem el rombe amb els rectangles de les entitats per mig de línies.
+Representaremos la relación por un rombo, con el nombre de la relación en el interior.
+Habitualmente será un verbo que describe la relación entre las dos entidades.
+Uniremos el rombo con los rectángulos de las entidades por medio de líneas.
 
-Així tindrem:
+Así tendremos:
 
 ![](relacio1.png)
 
-En una Relació poden intervenir 2 entitats (Relació Binària), 3 entitats
-(ternària), o fins i tot més. Aquest número serà el **GRAU** de la relació.
+En una Relación pueden intervenir 2 entidades (Relación Binaria), 3 entidades
+(ternaria), o incluso más. Este número será el **GRADO** de la relación.
 
-Un exemple de relació ternària seria:
+Un ejemplo de relación ternaria sería:
 
 ![](relacio2.png)
 
-I una ocurrència d’aquesta relació podria ser: Comptabilitat compra una
-calculadora a Distribucions Garcia, S.L.
+Y una ocurrencia de esta relación podría ser: Contabilidad compra una
+calculadora a Distribuciones Garcia, S.L.
 
-També es pot donar el cas que només intervinga una entitat. Aleshores seria
-reflexiva o de grau 1. Per exemple, els empleats tenen un supervisor, que
-també és un empleat de la companyia.
+También se puede dar el caso de que solo intervenga una entidad. Entonces sería
+reflexiva o de grado 1. Por ejemplo, los empleados tienen un supervisor, que
+también es un empleado de la compañía.
 
 ![](relacio3.png)
 
-Per últim, també es pot donar el cas que dues entitats tinguen entre elles més
-d’una relació. En el nostre exemple els empleats pertanyen als departaments.
-Però alguns empleats dirigeixen els departaments, i aquesta és una relació
-distinta de l’anterior. Per això convé posar el nom de la relació, per evitar
-confusions.
+Por último, también se puede dar el caso de que dos entidades tengan entre ellas más
+de una relación. En nuestro ejemplo los empleados pertenecen a los departamentos.
+Pero algunos empleados dirigen los departamentos, y esta es una relación
+distinta a la anterior. Por eso conviene poner el nombre de la relación, para evitar
+confusiones.
 
 ![](relacio4.png)
 
@@ -62,67 +62,67 @@ confusions.
 <u>**Nota**</u> 
 <div style="background-color: #d6eaf8; color: black; padding: 5px;">
 
-  Potser a mida que fem exercicis ens entre perea de posar nom a totes les
-  relacions, sobretot perquè moltes estarà molt clar què signifiquen. Però
-  haurem de posar sempre el nom en aquelles que puguen dur a confusió o
-  aquelles que no està clar el seu significat.
+  Quizás a medida que hagamos ejercicios nos entre pereza de poner nombre a todas las
+  relaciones, sobre todo porque muchas estará muy claro qué significan. Pero
+  tendremos que poner siempre el nombre en aquellas que puedan llevar a confusión o
+  aquellas de las que no está claro su significado.
 <p></p>
 </div>
   
 <p></p>
-### Aplicació a l'exemple
+### Aplicación al ejemplo
 
 
 
-Després d'incorporar les relacions, el nostre exemple quedarà:
+Después de incorporar las relaciones, nuestro ejemplo quedará:
 
 
 ![](relacio5.png)
 
-## 4.2 Atributs de Relació
+## 4.2 Atributos de Relación
 
-Les relacions també poden tenir atributs, igual que les entitats. Un atribut
-de relació seria el número d’hores que treballa un empleat en un projecte, que
-seria un atribut de la relació **treballa**. Per exemple _Joan Peris_ treballa
-en el projecte _Estudi rendiment_ , i li dedica 5 hores setmanals. Fixeu-vos
-que no és un atribut ni d’empleat ni de projecte, sinó de la relació que hi ha
-entre elles. Un altre atribut de relació podria ser la data quan un empleat
-comença a dirigir un departament.
+Las relaciones también pueden tener atributos, igual que las entidades. Un atributo
+de relación sería el número de horas que trabaja un empleado en un proyecto, que
+sería un atributo de la relación **trabaja**. Por ejemplo _Juan Pérez_ trabaja
+en el proyecto _Estudio rendimiento_, y le dedica 5 horas semanales. Fijaos
+que no es un atributo ni de empleado ni de proyecto, sino de la relación que hay
+entre ellas. Otro atributo de relación podría ser la fecha cuando un empleado
+comienza a dirigir un departamento.
 
-Representarem els atributs de relació com els atributs d'entitat, però ara
-units a les relacions.
+Representaremos los atributos de relación como los atributos de entidad, pero ahora
+unidos a las relaciones.
 
-### Aplicació a l'exemple
+### Aplicación al ejemplo
 
-Posarem en roig els atributs de relació:
+Pondremos en rojo los atributos de relación:
 
 
 
 ![](relacio6.png)
 
-## 4.3 Tipus de Relació o Cardinalitat
+## 4.3 Tipo de Relación o Cardinalidad
 
 
 
-Encara no hem reflectit tota la realitat. Per exemple no hem pogut expressar
-que un empleat pertany únicament a un departament, i en canvi pot estar en més
-d’un projecte.
+Todavía no hemos reflejado toda la realidad. Por ejemplo no hemos podido expresar
+que un empleado pertenece únicamente a un departamento, y en cambio puede estar en más
+de un proyecto.
 
-Això ho farem per mig de la cardinalitat, que ens durà a distintes classes de
-relacions.
+Esto lo haremos por medio de la cardinalidad, que nos llevará a distintas clases de
+relaciones.
 
-La **CARDINALITAT** especifica el número d'ocurrències d'una entitat que poden
-intervenir en la relació per cada ocurrència de l'altra entitat.
+La **CARDINALIDAD** especifica el número de ocurrencias de una entidad que pueden
+intervenir en la relación por cada ocurrencia de la otra entidad.
 
-Una ocurrència d'EMPLEAT (un empleat concret) només pot estar relacionat amb
-una ocurrència de DEPARTAMENT (Joan Peris pertany a Comptabilitat, i a cap
-altre departament més). En canvi una ocurrència de DEPARTAMENT pot estar
-relacionada amb moltes ocurrències d'EMPLEAT (tots els que hi pertanyen).
-Aleshores la relació PERTANY entre DEPARTAMENT i EMPLEAT té raó de
-cardinalitat **1:N** (un departament relacionat amb molts empleats, però un
-empleat amb un departament).
+Una ocurrencia de EMPLEADO (un empleado concreto) solo puede estar relacionado con
+una ocurrencia de DEPARTAMENTO (Juan Pérez pertenece a Contabilidad, y a ningún
+otro departamento más). En cambio una ocurrencia de DEPARTAMENTO puede estar
+relacionada con muchas ocurrencias de EMPLEADO (todos los que pertenecen a él).
+Entonces la relación PERTENECE entre DEPARTAMENTO y EMPLEADO tiene razón de
+cardinalidad **1:N** (un departamento relacionado con muchos empleados, pero un
+empleado con un departamento).
 
-Ho representarem així:
+Lo representaremos así:
 
 
 
@@ -138,37 +138,37 @@ o millor:
 
   
 
-Els distints tipus de relacions que hi pot haver són:
+Los distintos tipos de relaciones que puede haber son:
 
-  * **1:1** (llegirem: **ú a ú**) com a màxim una ocurrència de cada. Per exemple la relació DIRIGEIX (un empleat dirigeix com a molt un departament, i un departament és dirigit per un empleat).
+  * **1:1** (leeremos: **uno a uno**) como máximo una ocurrencia de cada. Por ejemplo la relación DIRIGE (un empleado dirige como mucho un departamento, y un departamento es dirigido por un empleado).
 
-  * **1:N** (llegirem: **ú a ena** o **ú a molts**) en una entitat una ocurrència i en l'altra moltes.
+  * **1:N** (leeremos: **uno a ene** o **uno a muchos**) en una entidad una ocurrencia y en la otra muchas.
 
-  * **M:N** (llegirem: **ema a ena** o **molts a molts**) hi ha més d'una ocurrència en cada entitat. Per exemple la relació TREBALLA (un empleat pot treballar en més d'un projecte, i en un projecte pot treballar més d'un empleat).
+  * **M:N** (leeremos: **eme a ene** o **muchos a muchos**) hay más de una ocurrencia en cada entidad. Por ejemplo la relación TRABAJA (un empleado puede trabajar en más de un proyecto, y en un proyecto puede trabajar más de un empleado).
 
 
 
-Per a poder distingir aquesta cardinalitat ens farem dues preguntes, resultat
-de fixar una ocurrència en una entitat i veure quantes ocurrències es
-relacionen en l'altra entitat. És a dir, per a una ocurrència d'una, quantes
-hi ha de l'altra. En l'exemple de més amunt:
+Para poder distinguir esta cardinalidad nos haremos dos preguntas, resultado
+de fijar una ocurrencia en una entidad y ver cuántas ocurrencias se
+relacionan en la otra entidad. Es decir, para una ocurrencia de una, cuántas
+hay de la otra. En el ejemplo de más arriba:
 
-  * A un departament determinat, quants empleats poden pertànyer? (molts).
+  * A un departamento determinado, ¿cuántos empleados pueden pertenecer? (muchos).
 
-  * Un empleat determinat, a quants departaments pot pertànyer? (a un).
+  * Un empleado determinado, ¿a cuántos departamentos puede pertenecer? (a uno).
 
-Aquestes preguntes normalment tenen molt fàcil contestació. Si hi ha dubte
-hauríem d'investigar millor en les especificacions.
+Estas preguntas normalmente tienen muy fácil contestación. Si hay duda
+deberíamos investigar mejor en las especificaciones.
 
 > _**Nota**_
 >
-> La cardinalitat M:N també la podríem representar N:N. Senzillament vol dir
-> que són moltes ocurrències de cada entitat per cadascuna de l'altra. En
-> aquestos apunts normalment posaré M:N, senzillament perquè "sóna" millor.
+> La cardinalidad M:N también la podríamos representar N:N. Sencillamente quiere decir
+> que son muchas ocurrencias de cada entidad por cada una de la otra. En
+> estos apuntes normalmente pondré M:N, sencillamente porque "suena" mejor.
 
-### Aplicació a l'exemple
+### Aplicación al ejemplo
 
-L'exemple cada vegada està més complet:
+El ejemplo cada vez está más completo:
 
 
 
@@ -177,6 +177,5 @@ L'exemple cada vegada està més complet:
 ![](relacio_card3.png)
 
 
-Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
+Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
 CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
-

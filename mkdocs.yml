@@ -1,23 +1,66 @@
 site_url : https://asalvadorc.github.io/BBDD_Tema2
-site_name: BD - Bases de Dades
-theme: 
-  name: readthedocs
+site_name: BD - Bases de Datos
+
+theme:
+  name: material
   logo: assets/logocaminas.png
+  favicon: assets/logocaminas.png
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.integrate
+    - navigation.footer
+    - navigation.path
+    
+  copyright: Licenciado bajo la licencia Creative Commons by-nc-nd
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
 
 extra_css:
-  - css/extra.css 
+  - css/extra.css
+
+markdown_extensions:
+  - admonition
+  - tables    
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
 nav:
-  - Tema 2-Modelo Entidad-Relación:
-    - Objectius i coneixements previs: BD-T02_Model_E-R/objectius_i_coneixements_previs.md
-    - 1. Introducció: BD-T02_Model_E-R/1_introducci.md
-    - 2. Exemple: BD-T02_Model_E-R/2_exemple.md
-    - 3. Les Entitats del Model E/R: BD-T02_Model_E-R/3_les_entitats_del_model_er.md
-    - Exercicis: BD-T02_Model_E-R/exercicis.md
-    - 4. Les Relacions del Model E/R: BD-T02_Model_E-R/4_les_relacions_del_model_er.md
-    - Exercicis: BD-T02_Model_E-R/exercicis0.md
-    - 5. Relacions de grau major que dos: BD-T02_Model_E-R/5_relacions_de_grau_major_que_dos.md
-    - 6. Model E/R Estès: BD-T02_Model_E-R/6_model_er_ests.md
-    - 7. Restriccions externes: BD-T02_Model_E-R/7_restriccions_externes.md
-    - Exercicis: BD-T02_Model_E-R/exercicis1.md
-    - Informació addicional: BD-T02_Model_E-R/informaci_addicional.md
+  - Inicio: index.md
+  - Tema 2 - Modelo Entidad-Relación:
+    - Objetivos y conocimientos previos: BD-T02_Model_E-R/objectius_i_coneixements_previs.md
+    - 1. Introducción: BD-T02_Model_E-R/1_introducci.md
+    - 2. Ejemplo: BD-T02_Model_E-R/2_exemple.md
+    - 3. Las Entidades del Modelo E/R: BD-T02_Model_E-R/3_les_entitats_del_model_er.md
+    - Ejercicios: BD-T02_Model_E-R/exercicis.md
+    - 4. Las Relaciones del Modelo E/R: BD-T02_Model_E-R/4_les_relacions_del_model_er.md
+    - Ejercicios: BD-T02_Model_E-R/exercicis0.md
+    - 5. Relaciones de grado mayor que dos: BD-T02_Model_E-R/5_relacions_de_grau_major_que_dos.md
+    - 6. Modelo E/R Extendido: BD-T02_Model_E-R/6_model_er_ests.md
+    - 7. Restricciones externas: BD-T02_Model_E-R/7_restriccions_externes.md
+    - Ejercicios: BD-T02_Model_E-R/exercicis1.md
+    - Información adicional: BD-T02_Model_E-R/informaci_addicional.md
   

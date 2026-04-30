@@ -1,10 +1,10 @@
-# 5. Relacions de grau major que dos
+# 5. Relaciones de grado mayor que dos
 
 
 
-Anem a estudiar una miqueta més el cas de les relacions ternàries. Donada la
-seua complexitat podríem, i de fet així es fa de vegades, descompondre-la en
-tres relacions binàries
+Vamos a estudiar un poco más el caso de las relaciones ternarias. Dada su
+complejidad podríamos, y de hecho así se hace a veces, descomponerla en
+tres relaciones binarias
 
 
 
@@ -13,17 +13,17 @@ tres relacions binàries
 
 
   
-Així pot haver una ocurrència que Comptabilitat adquireix una calculadora, una
-altra que Comptabilitat compra a Distribucions Garcia, S.L., i una altra que
-Distribucions Garcia, S.L. subministra calculadores.
+Así puede haber una ocurrencia de que Contabilidad adquiere una calculadora, otra
+de que Contabilidad compra a Distribuciones Garcia, S.L., y otra de que
+Distribuciones Garcia, S.L. suministra calculadoras.
 
-Però això no té per què voler dir que la calculadora comprada per
-Comptabilitat, l'haja comprada a Distribucions Garcia, S.L. Pot haver-la
-comprada a un altre proveïdor, i el que li compra a Garcia són bolígrafs
-(encara que Garcia també en puga vendre de calculadores).
+Pero esto no tiene por qué querer decir que la calculadora comprada por
+Contabilidad, la haya comprado a Distribuciones Garcia, S.L. Puede haberla
+comprado a otro proveedor, y lo que le compra a Garcia son bolígrafos
+(aunque Garcia también pueda vender calculadoras).
 
-En canvi en una relació ternària es diu qui compra, què compra i a qui compra.
-Per tant una relació ternària proporciona més informació que 3 binàries.
+En cambio en una relación ternaria se dice quién compra, qué compra y a quién compra.
+Por tanto una relación ternaria proporciona más información que 3 binarias.
 
 
 
@@ -31,13 +31,13 @@ Per tant una relació ternària proporciona més informació que 3 binàries.
 
 
 
-La cardinalitat es calcula fixant-ne 2 i veient quantes ocurrències entren en
-la tercera. Així, un determinat departament pot comprar un determinat article
-a més d'un proveïdor (N). Un article d'un proveïdor el pot comprar més d'un
-departament (N). I un departament pot comprar a un proveïdor més d'un article.
-No té perquè ser sempre N:N:N (en aquest cas de les ternàries no utilitzarem
-ja la M, només la N). Per exemple suposem que un departament sempre compra un
-article al mateix proveïdor; aleshores en Proveïdor tindríem 1.
+La cardinalidad se calcula fijando 2 y viendo cuántas ocurrencias entran en
+la tercera. Así, un determinado departamento puede comprar un determinado artículo
+a más de un proveedor (N). Un artículo de un proveedor lo puede comprar más de un
+departamento (N). Y un departamento puede comprar a un proveedor más de un artículo.
+No tiene porqué ser siempre N:N:N (en este caso de las ternarias no utilizaremos
+ya la M, solo la N). Por ejemplo supongamos que un departamento siempre compra un
+artículo al mismo proveedor; entonces en Proveedor tendríamos 1.
 
 
 
@@ -47,10 +47,10 @@ article al mateix proveïdor; aleshores en Proveïdor tindríem 1.
 
 
 
-Algunes ferramentes de disseny de B.D. només permeten relacions binàries.
-Aleshores s'hauria de fer un truc per a representar la relació ternària,
-construint una entitat nova, dèbil, que depenga en identificació de les altres
-3. Veurem les entitats dèbils en el següent punt.
+Algunas herramientas de diseño de B.D. solo permiten relaciones binarias.
+Entonces se tendría que hacer un truco para representar la relación ternaria,
+construyendo una entidad nueva, débil, que dependa en identificación de las otras
+3. Veremos las entidades débiles en el siguiente punto.
 
 
 
@@ -61,6 +61,5 @@ construint una entitat nova, dèbil, que depenga en identificació de les altres
 
 
 
-Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
+Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
 CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
-

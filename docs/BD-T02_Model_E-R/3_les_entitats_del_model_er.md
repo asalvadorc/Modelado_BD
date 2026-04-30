@@ -1,141 +1,139 @@
-# 3. Les Entitats del Model E/R
+# 3. Las Entidades del Modelo E/R
 
-Per a fer un esquema amb el Model Entitat-Relació, començarem sempre per les
-primeres, per les entitats.
-
-
-## 3.1 Entitats
-
-Per a fer un esquema amb el Model Entitat-Relació, començarem sempre per les
-primeres, per les entitats.
-
-És a dir, a partir de les especificacions del problema, intentarem esbrinar
-les entitats.
-
-L'**ENTITAT** serà una persona, cosa, lloc, concepte o succés, amb existència
-real o abstracta, que ens és d'interès.
-
-Així per exemple, els empleats són entitats. Com tots els empleats tindran per
-a nosaltres les mateixes característiques (nom, adreça,...), encara que
-cadascú amb valors distints, els podem englobar en la mateixa estructura.
-
-Definirem **TIPUS D'ENTITAT** a l'estructura genèrica (EMPLEAT) i **OCURRÈNCIA
-D'ENTITAT** a cadascuna de les realitzacions concretes (cadascun dels
-empleats, per exemple Joan Peris). Evidentment, en el disseny no ens
-interessen les ocurrències, sinó el Tipus d'Entitat. El representarem per un
-rectangle amb el nom de l'entitat a l'interior (preferiblement en singular).
+Para hacer un esquema con el Modelo Entidad-Relación, empezaremos siempre por las
+primeras, por las entidades.
 
 
-### Aplicació a l'exemple
+## 3.1 Entidades
+
+Para hacer un esquema con el Modelo Entidad-Relación, empezaremos siempre por las
+primeras, por las entidades.
+
+Es decir, a partir de las especificaciones del problema, intentaremos averiguar
+las entidades.
+
+La **ENTIDAD** será una persona, cosa, lugar, concepto o suceso, con existencia
+real o abstracta, que nos es de interés.
+
+Así por ejemplo, los empleados son entidades. Como todos los empleados tendrán para
+nosotros las mismas características (nombre, dirección,...), aunque
+cada uno con valores distintos, los podemos englobar en la misma estructura.
+
+Definiremos **TIPO DE ENTIDAD** a la estructura genérica (EMPLEADO) y **OCURRENCIA
+DE ENTIDAD** a cada una de las realizaciones concretas (cada uno de los
+empleados, por ejemplo Juan Pérez). Evidentemente, en el diseño no nos
+interesan las ocurrencias, sino el Tipo de Entidad. Lo representaremos por un
+rectángulo con el nombre de la entidad en el interior (preferiblemente en singular).
+
+
+### Aplicación al ejemplo
 
 
 
-En el nostre exemple, el del punt 2, quedaran les següents Entitats:
+En nuestro ejemplo, el del punto 2, quedarán las siguientes Entidades:
 
 
 
 ![](entitats.png)
 
-## 3.2 Atributs
+## 3.2 Atributos
 
 
 
-Un **ATRIBUT** és cadascuna de les característiques d'una entitat que ens
-interessen.
+Un **ATRIBUTO** es cada una de las características de una entidad que nos
+interesan.
 
-Per exemple en l'entitat EMPLEAT tindrem els atributs _nom, DNI, adreça,
-telèfon, sou_ i _data de naixement_.
+Por ejemplo en la entidad EMPLEADO tendremos los atributos _nombre, DNI, dirección,
+teléfono, sueldo_ y _fecha de nacimiento_.
 
-No considerarem atributs les característiques que no ens interessen (estatura,
-talla pantalons, etc.)
+No consideraremos atributos las características que no nos interesan (estatura,
+talla pantalones, etc.)
 
-Una ocurrència d'entitat tindrà un **VALOR** per a cada atribut, per exemple
-_Joan Peris, 18.901.234, 964-22.33.44, 1.200,00€., 12-5-1960._
+Una ocurrencia de entidad tendrá un **VALOR** para cada atributo, por ejemplo
+_Juan Pérez, 18.901.234, 964-22.33.44, 1.200,00€., 12-5-1960._
 
-Però de vegades potser que el contingut d'un atribut siga el valor **NUL**
-(per exemple si no té telèfon o el desconeixem).
+Pero a veces puede que el contenido de un atributo sea el valor **NULO**
+(por ejemplo si no tiene teléfono o lo desconocemos).
 
-Els atributs poden ser **SIMPLES** o **COMPOSTOS** , si estan formats per una
-única informació o per més d'una. Així, un exemple d'atribut compost seria el
-nom que podria estar format per: _nom=(nom de pila, primer cognom, segon
-cognom)_.
+Los atributos pueden ser **SIMPLES** o **COMPUESTOS**, si están formados por una
+única información o por más de una. Así, un ejemplo de atributo compuesto sería el
+nombre que podría estar formado por: _nombre=(nombre de pila, primer apellido, segundo
+apellido)_.
 
-Poden haver atributs **MULTIVALUATS** , que vol dir que poden agafar més d'un
-valor. Per exemple suposem que en el cas anterior considerem el camp **altres telèfons** (per si en l'empresa hi ha moments que hem de localitzar
-l'empleat urgentment). Potser un empleat no tinga cap valor en aquest camp. I
-potser un altre en tinga dos (el mòbil i el d'una segona residència). En
-general fugirem d'aquestos camps per comoditat, però el model ho accepta.
+Pueden haber atributos **MULTIVALUADOS**, que quiere decir que pueden tomar más de un
+valor. Por ejemplo supongamos que en el caso anterior consideramos el campo **otros teléfonos** (por si en la empresa hay momentos que tenemos que localizar
+al empleado urgentemente). Quizás un empleado no tenga ningún valor en este campo. Y
+quizás otro tenga dos (el móvil y el de una segunda residencia). En
+general huiremos de estos campos por comodidad, pero el modelo lo acepta.
 
-També poden haver atributs **DERIVATS** , és a dir, atributs que es poden
-calcular a partir d'altres. Podria ser el cas del camp _edat_ , que es pot
-calcular a partir de la data del sistema i de _data de naixement_.
-
-
-
-El model necessita poder identificar cada ocurrència sense marge d'error. Hi
-haurà algun atribut (o conjunt d'atributs) que acomplirà aquesta premisa
-d'identificar unívocament. I per a que això siga possible, aquest atribut
-haurà de tenir valors distints per a totes les ocurrències (sinó no podria
-identificar-les); i al mateix temps no podrà tenir en cap cas el valor nul. En
-l'exemple EMPLEAT, el _nom_ o el _DNI_ servirien per identificar. En canvi el
-sou no serviria, ja que més d'un empleat pot tenir el mateix sou. El telèfon
-tampoc, perquè potser siga nul.
-
-Als atributs (o conjunts d'atributs) que acompleixen la condició anterior els
-anomenarem **CLAUS CANDIDATES** , i d'entre totes les claus candidates triarem
-una i l'anomenarem **CLAU PRINCIPAL**.
-
-Totes les entitats han de tenir una clau principal. És una de les restriccions
-del Model E/R.
+También pueden haber atributos **DERIVADOS**, es decir, atributos que se pueden
+calcular a partir de otros. Podría ser el caso del campo _edad_, que se puede
+calcular a partir de la fecha del sistema y de _fecha de nacimiento_.
 
 
 
-Representarem els atributs amb un cercle unit a l'entitat per una línia, i en
-l'interior o al costat posarem el nom de l'atribut. La clau principal
-l'assenyalarem subratllant-la, o amb el cercle negre.
+El modelo necesita poder identificar cada ocurrencia sin margen de error. Habrá
+algún atributo (o conjunto de atributos) que cumplirá esta premisa
+de identificar unívocamente. Y para que esto sea posible, este atributo
+deberá tener valores distintos para todas las ocurrencias (sino no podría
+identificarlas); y al mismo tiempo no podrá tener en ningún caso el valor nulo. En
+el ejemplo EMPLEADO, el _nombre_ o el _DNI_ servirían para identificar. En cambio el
+sueldo no serviría, ya que más de un empleado puede tener el mismo sueldo. El teléfono
+tampoco, porque quizás sea nulo.
 
-Per als atributs multivaluats posarem **_n_** en la línia. I els derivats els
-representarem amb línies discontínues.
+A los atributos (o conjuntos de atributos) que cumplen la condición anterior los
+llamaremos **CLAVES CANDIDATAS**, y de entre todas las claves candidatas elegiremos
+una y la llamaremos **CLAVE PRINCIPAL**.
 
-Ací tindríem dues maneres (absolutament equivalents) de representar l'entitat
-EMPLEAT amb els seus atributs.  
+Todas las entidades deben tener una clave principal. Es una de las restricciones
+del Modelo E/R.
+
+
+
+Representaremos los atributos con un círculo unido a la entidad por una línea, y en
+el interior o al lado pondremos el nombre del atributo. La clave principal
+la señalaremos subrayándola, o con el círculo negro.
+
+Para los atributos multivaluados pondremos **_n_** en la línea. Y los derivados los
+representaremos con líneas discontinuas.
+
+Aquí tendríamos dos maneras (absolutamente equivalentes) de representar la entidad
+EMPLEADO con sus atributos.  
 
 ![](atributs1.png) |   | ![](atributs2.png)  
 ---|---|---  
 
-### Aplicació a l'exemple
+### Aplicación al ejemplo
 
 
 
-En el nostre exemple del punt 2 quedarien les altres entitats amb els següents
-atributs:
+En nuestro ejemplo del punto 2 quedarían las otras entidades con los siguientes
+atributos:
 
 
 
 ![](atributs3.png)
 
 <!--
-### 3.2.1 Dominis
+### 3.2.1 Dominios
 
 
 
-És el conjunt de possibles valors que pot agafar un atribut. Així, per
-exemple, el domini de l'atribut Dni són els números enters, i encara podríem
-filar més prim, els enters de 8 xifres decimals (fins el 99.999.999). Això sí,
-si preveem que potser ens convinga guardar també la lletra de NIF, aleshores
-hauria de ser alfanumèric de 9 caràcters. El número identificatiu del
-departament podria ser un número de l'1 al 10.
+Es el conjunto de posibles valores que puede tomar un atributo. Así, por
+ejemplo, el dominio del atributo Dni son los números enteros, y todavía podríamos
+hilar más fino, los enteros de 8 cifras decimales (hasta el 99.999.999). Eso sí,
+si prevemos que quizás nos convenga guardar también la letra de NIF, entonces
+debería ser alfanumérico de 9 caracteres. El número identificativo del
+departamento podría ser un número del 1 al 10.
 
-Més d'un atribut pot compartir el mateix domini, per exemple si incloem
-l'atribut data d'incorporació a la companyia a l'entitat EMPLEAT tindria el
-mateix domini que el camp data de naixement.
+Más de un atributo puede compartir el mismo dominio, por ejemplo si incluimos
+el atributo fecha de incorporación a la compañía a la entidad EMPLEADO tendría el
+mismo dominio que el campo fecha de nacimiento.
 
-Quan treballem en el Model Relacional, en el tema següent, una de les
-restriccions que farem serà definir clarament el domini de cada atribut, per a
-no deixar introduir valors invàlids.
+Cuando trabajemos en el Modelo Relacional, en el tema siguiente, una de las
+restricciones que haremos será definir claramente el dominio de cada atributo, para
+no dejar introducir valores inválidos.
 
 -->  
 
-Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
-CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
-
+Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)

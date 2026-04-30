@@ -1,19 +1,18 @@
-# Exercicis
+# Ejercicios
 
 
-## ![](icon_activity.gif) Exercici 1 bis
+## ![](icon_activity.gif) Ejercicio 1 bis
 
-Intenta traure les relacions amb la cardinalitat de l'exercici 1
+Intenta sacar las relaciones con la cardinalidad del ejercicio 1
 
-## ![](icon_activity.gif) Exercici 2
+## ![](icon_activity.gif) Ejercicio 2
 
-Dissenyar un esquema E/R que arreplegue informació sobre municipis, vivendes i
-persones. Cada persona només pot habitar una vivenda i residir en un municipi,
-però pot ser propietària de més d'una vivenda. Evidentment, una vivenda pot
-tenir més d'un propietari. Ens interessa també la relació de les persones amb
-el seus caps de família (pot tenir més d'un cap de família)
+Diseñar un esquema E/R que recoja información sobre municipios, viviendas y
+personas. Cada persona solo puede habitar una vivienda y residir en un municipio,
+pero puede ser propietaria de más de una vivienda. Evidentemente, una vivienda puede
+tener más de un propietario. Nos interesa también la relación de las personas con
+sus cabezas de familia (puede tener más de un cabeza de familia)
 
 
-Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
+Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
 CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
-

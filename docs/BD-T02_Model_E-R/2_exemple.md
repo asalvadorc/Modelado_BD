@@ -1,18 +1,15 @@
-# 2. Exemple
+# 2. Ejemplo
 
-Anem a presentar un exemple sobre el qual ens basarem durant tot el tema. Es
-tracta d'una companyia, i el resultat de l'anàlisi de requeriments és el
-següent:
+Vamos a presentar un ejemplo sobre el cual nos basaremos durante todo el tema. Se
+trata de una compañía, y el resultado del análisis de requerimientos es el
+siguiente:
 
-  1. La companyia està organitzada en departaments. Cadascun té nom únic, número únic i un empleat que el dirigeix. Ens interessa la data en la qual va començar a dirigir-lo.
-  2. Cada departament controla una sèrie de projectes. Cadascun d'aquestos projectes té nom i número únics, i estarà coordinat per un únic departament.
-  3. De cada empleat ens interessa el nom (format per dos cognoms i nom de pila), DNI, adreça, telèfon, sou i data de naixement. Tot empleat està assignat a un departament, i moltes vegades tindrà un supervisor. Pot treballar en més d'un projecte (no necessàriament controlats pel mateix departament) i treballarà un determinat número d'hores a la setmana en cada projecte. En un projecte sempre treballarà, com a mínim, un empleat.
-  4. Volem saber també els familiars de cada empleat, per administrar els termes d'una assegurança. Volem saber el nom, data de naixement i parentesc amb l'empleat.
+  1. La compañía está organizada en departamentos. Cada uno tiene nombre único, número único y un empleado que lo dirige. Nos interesa la fecha en la que comenzó a dirigirlo.
+  2. Cada departamento controla una serie de proyectos. Cada uno de estos proyectos tiene nombre y número únicos, y estará coordinado por un único departamento.
+  3. De cada empleado nos interesa el nombre (formado por dos apellidos y nombre de pila), DNI, dirección, teléfono, sueldo y fecha de nacimiento. Todo empleado está asignado a un departamento, y muchas veces tendrá un supervisor. Puede trabajar en más de un proyecto (no necesariamente controlados por el mismo departamento) y trabajará un determinado número de horas a la semana en cada proyecto. En un proyecto siempre trabajará, como mínimo, un empleado.
+  4. Queremos saber también los familiares de cada empleado, para administrar los términos de un seguro. Queremos saber el nombre, fecha de nacimiento y parentesco con el empleado.
 
-  
 ---  
 
-
-Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
+Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
 CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
-

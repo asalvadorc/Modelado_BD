@@ -1,73 +1,73 @@
-# 6. Model E/R Estès
+# 6. Modelo E/R Extendido
 
 
 
-El que hem vist fins ara proporciona una eina per descriure la realitat molt
-potent. Però encara hi ha restriccions del món real que no podem representar.
+Lo que hemos visto hasta ahora proporciona una herramienta para describir la realidad muy
+potente. Pero todavía hay restricciones del mundo real que no podemos representar.
 
-Per exemple, de l'entitat FAMILIAR no ens interessen tots els familiars del
-món, únicament els familiars dels empleats. És més, si un empleat deixa de
-treballar en l'empresa, ja no ens interessen els familiars.
+Por ejemplo, de la entidad FAMILIAR no nos interesan todos los familiares del
+mundo, únicamente los familiares de los empleados. Es más, si un empleado deja de
+trabajar en la empresa, ya no nos interesan sus familiares.
 
-O un altre exemple, hem posat que la relació DIRIGEIX és **1:1** , i això ens
-podria fer pensar que les dues entitats, EMPLEAT i DEPARTAMENT, participen
-exactament de la mateixa manera en la relació. Però no és exactament així, ja
-que tot departament tindrà un empleat que el dirigeix, però no tot empleat té
-un departament a dirigir.
+O otro ejemplo, hemos puesto que la relación DIRIGE es **1:1**, y esto nos
+podría hacer pensar que las dos entidades, EMPLEADO y DEPARTAMENTO, participan
+exactamente de la misma manera en la relación. Pero no es exactamente así, ya
+que todo departamento tendrá un empleado que lo dirige, pero no todo empleado tiene
+un departamento a dirigir.
 
-Això fa que el Model E/R s'haja desenvolupat amb les aportacions de més
-autors, fins arribar al **MODEL ENTITAT-RELACIÓ ESTÈS**.
+Esto hace que el Modelo E/R se haya desarrollado con las aportaciones de más
+autores, hasta llegar al **MODELO ENTIDAD-RELACIÓN EXTENDIDO**.
 
-## 6.1 Cardinalitat màxima i mínima. Participació total.
+## 6.1 Cardinalidad máxima y mínima. Participación total.
 
 
-**CARDINALITAT MÀXIMA i MÍNIMA** d’una entitat que participa en una relació,
-són respectivament el número màxim i mínim d’ocurrències d’aquesta entitat que
-estan relacionades amb una ocurrència de l’altra entitat
+**CARDINALIDAD MÁXIMA y MÍNIMA** de una entidad que participa en una relación,
+son respectivamente el número máximo y mínimo de ocurrencias de esta entidad que
+están relacionadas con una ocurrencia de la otra entidad
 
 ![](estes_tot1.png)
 
-**Per exemple**
+**Por ejemplo**
 
-Un empleat pot dirigir 0 o 1 departament, i un departament és dirigit (com a
-mínim i com a màxim) per 1 empleat. Ho posarem entre parèntesis **(card.
-mínima, card. màxima)** al costat de l’entitat. En realitat el nou concepte
-és la cardinalitat mínima, ja que la màxima és la cardinalitat d'abans. Els
-valors habituals de cardinalitat mínima són 0 i 1.
+Un empleado puede dirigir 0 o 1 departamento, y un departamento es dirigido (como
+mínimo y como máximo) por 1 empleado. Lo pondremos entre paréntesis **(card.
+mínima, card. máxima)** al lado de la entidad. En realidad el nuevo concepto
+es la cardinalidad mínima, ya que la máxima es la cardinalidad de antes. Los
+valores habituales de cardinalidad mínima son 0 y 1.
 
 
 
-**PARTICIPACIÓ TOTAL O PARCIAL**
+**PARTICIPACIÓN TOTAL O PARCIAL**
 
-Una entitat participa de forma **TOTAL** en una relació, si totes les seues
-ocurrències participen en alguna ocurrència de la relació. Així DEPARTAMENT
-participa de forma total, ja que tot departament té un cap. En canvi EMPLEAT
-no participa de forma total, ja que no tot empleat dirigeix un departament.
-Les entitats que participen de forma total tenen de cardinalitat mínima 1. Les
-que no 0. **Per tant amb la participació total o parcial aconseguim el mateix
-que amb la cardinalitat mínima.**
+Una entidad participa de forma **TOTAL** en una relación, si todas sus
+ocurrencias participan en alguna ocurrencia de la relación. Así DEPARTAMENTO
+participa de forma total, ya que todo departamento tiene un jefe. En cambio EMPLEADO
+no participa de forma total, ya que no todo empleado dirige un departamento.
+Las entidades que participan de forma total tienen de cardinalidad mínima 1. Las
+que no 0. **Por tanto con la participación total o parcial conseguimos lo mismo
+que con la cardinalidad mínima.**
 
-Representarem que una entitat participa de forma total en una relació amb una
-doble ratlla
+Representaremos que una entidad participa de forma total en una relación con una
+doble raya
 
 ![](estes_tot2.png)
 
-Com que de les dues maneres anteriors, la cardinalitat mínima i la
-participació total o parcial, aconseguim exactament el mateix, en aquestos
-apunts **només representarem la participació total o parcial** , ja que té una
-representació gràfica molt senzilla.
+Como de las dos maneras anteriores, la cardinalidad mínima y la
+participación total o parcial, conseguimos exactamente lo mismo, en estos
+apuntes **solo representaremos la participación total o parcial**, ya que tiene una
+representación gráfica muy sencilla.
 
   
 
 * * *
 
-[1] Hi ha autors que les posen a l’inrevés, en les altres entitats.
+[1] Hay autores que las ponen al revés, en las otras entidades.
 
-### Aplicació a l'exemple
+### Aplicación al ejemplo
 
 
 
-Aplicant la participació total i parcial, el nostre exemple quedarà:
+Aplicando la participación total y parcial, nuestro ejemplo quedará:
 
 
 
@@ -76,90 +76,90 @@ Aplicant la participació total i parcial, el nostre exemple quedarà:
 ![](estes_tot3.png)
 
 
-## 6.2 Entitats dèbils
+## 6.2 Entidades débiles
 
 
 
-No totes les entitats són iguals. En les normals, que anomenarem **REGULARS**
-, les ocurrències tenen existència pròpia.
+No todas las entidades son iguales. En las normales, que llamaremos **REGULARES**,
+las ocurrencias tienen existencia propia.
 
-En canvi, en les entitats **DÈBILS** , l’existència de les ocurrències depèn
-de l’existència de l’ocurrència d’una altra entitat, i així si desapareix
-aquesta última, haurien de desaparèixer també totes aquelles.
+En cambio, en las entidades **DÉBILES**, la existencia de las ocurrencias depende
+de la existencia de la ocurrencia de otra entidad, y así si desaparece
+esta última, deberían desaparecer también todas aquellas.
 
-Per exemple els familiars de Joan Peris podrien ser [Marta, dona], [Isabel,
-filla] i [Marc, fill]. Si desapareix l’empleat Joan Peris haurien de
-desaparèixer també els seus familiars.
+Por ejemplo los familiares de Juan Pérez podrían ser [Marta, mujer], [Isabel,
+hija] y [Marcos, hijo]. Si desaparece el empleado Juan Pérez deberían
+desaparecer también sus familiares.
 
-Les entitats dèbils les representarem per un doble rectangle:
+Las entidades débiles las representaremos por un doble rectángulo:
 
 ![Cuadro de texto: FAMILIAR](debil1.png)
 
-La cardinalitat mínima i màxima de l’entitat regular en la relació amb la
-dèbil sempre és (1,1). O el que és el mateix, la dèbil sempre participa de
-forma total en la relació 1:N.
+La cardinalidad mínima y máxima de la entidad regular en la relación con la
+débil siempre es (1,1). O lo que es lo mismo, la débil siempre participa de
+forma total en la relación 1:N.
 
-Tal com hem comentat les coses fins ara direm que l’entitat dèbil té una
-**DEPENDÈNCIA EN EXISTÈNCIA**[1].
+Tal como hemos comentado las cosas hasta ahora diremos que la entidad débil tiene una
+**DEPENDENCIA EN EXISTENCIA**[1].
 
-Però podem anar més enllà, si a més de la dependència en existència considerem
-que per a identificar una ocurrència de l’entitat dèbil ens fa falta la clau
-de l’entitat regular de la qual depèn. Si en una biblioteca tenim més d’un
-exemplar de cada llibre, tindríem l’entitat LLIBRE (on estaria tota la
-informació: títol, autor, editorial, ...) i una altra que seria EXEMPLAR. Serà
-lògic que per a identificar un determinat exemplar utilitzem el codi del
-llibre més el número d’exemplar.
+Pero podemos ir más allá, si además de la dependencia en existencia consideramos
+que para identificar una ocurrencia de la entidad débil nos hace falta la clave
+de la entidad regular de la cual depende. Si en una biblioteca tenemos más de un
+ejemplar de cada libro, tendríamos la entidad LIBRO (donde estaría toda la
+información: título, autor, editorial, ...) y otra que sería EJEMPLAR. Será
+lógico que para identificar un determinado ejemplar utilicemos el código del
+libro más el número de ejemplar.
 
-Un altre exemple podria ser el de PROVÍNCIES i MUNICIPIS. El codi de la
-província consta de 2 xifres (Castelló és el 12). Per a identificar un
-municipi s'utilitzen les 2 xifres del codi de la privíncia i 4 més per al
-municipi. I fa falta el codi de la província, perquè si no es repetirien.
+Otro ejemplo podría ser el de PROVINCIAS y MUNICIPIOS. El código de la
+provincia consta de 2 cifras (Castellón es el 12). Para identificar un
+municipio se utilizan las 2 cifras del código de la provincia y 4 más para el
+municipio. Y hace falta el código de la provincia, porque si no se repetirían.
 
-Aquesta dependència, encara més restrictiva que la d’existència, l’anomenarem
-**DEPENDÈNCIA EN IDENTIFICACIÓ**. Per a marcar aquesta dependència posarem
-**ID** al costat de la relació.
+Esta dependencia, aún más restrictiva que la de existencia, la llamaremos
+**DEPENDENCIA EN IDENTIFICACIÓN**. Para marcar esta dependencia pondremos
+**ID** al lado de la relación.
 
-En el nostre exemple, si considerem que per a identificar l’entitat FAMILIAR
-és suficient amb l’atribut Nom, serà en existència (el cas d’una companyia
-menuda). Si considerem que no és suficient, serà en identificació i la clau
-principal serà el DNI de l’empleat més el Nom del familiar.
+En nuestro ejemplo, si consideramos que para identificar la entidad FAMILIAR
+es suficiente con el atributo Nombre, será en existencia (el caso de una compañía
+pequeña). Si consideramos que no es suficiente, será en identificación y la clave
+principal será el DNI del empleado más el Nombre del familiar.
 
-Representarem la dependència en existència així (si considerem que amb el nom
-del familiar tenim prou per a identificar):
+Representaremos la dependencia en existencia así (si consideramos que con el nombre
+del familiar tenemos bastante para identificar):
 
 ![](T2_6_5.png)
 
-I la dependència en identificació així (si considerem que també fa falta
-l'identificador de l'empleat, que és el DNI):
+Y la dependencia en identificación así (si consideramos que también hace falta
+el identificador del empleado, que es el DNI):
 
 ![](T2_6_6.png)
 
-Representarem aquesta última de forma alternativa amb el rombe de doble ratlla
+Representaremos esta última de forma alternativa con el rombo de doble raya
 
 ![](T2_6_7.png)
 
 * * *
 
-[1] En la pràctica podríem pensar que tota entitat que participa de forma
-total en una relació és dèbil com a mínim en existència. Per exemple: la
-participació total de Familiar vol dir que tot familiar ho és d'un empleat; la
-dependència en existència vol dir que no pot existir un familiar sense
-l'empleat. Com veiem la diferència és molt subtil. A pesar d'això intentarem
-fer l’esforç de diferenciar ambdós casos, perquè en el següent tema sí que ens
-durà a dues maneres de procedir diferents.
+[1] En la práctica podríamos pensar que toda entidad que participa de forma
+total en una relación es débil como mínimo en existencia. Por ejemplo: la
+participación total de Familiar quiere decir que todo familiar lo es de un empleado; la
+dependencia en existencia quiere decir que no puede existir un familiar sin
+el empleado. Como vemos la diferencia es muy sutil. A pesar de esto intentaremos
+hacer el esfuerzo de diferenciar ambos casos, porque en el siguiente tema sí que nos
+llevará a dos maneras de proceder diferentes.
 
 
-## 6.3 Generalització i herència
+## 6.3 Generalización y herencia
 
 
 
-Anem a comentar, prou per damunt, un altre aspecte recollit en el Model E/R
-Estès. I és quan una entitat es pot subdividir en d'altres. Per exemple
-podríem refinar l'entitat EMPLEAT en CAPS, SECRETARIS i TREBALLADORS.
+Vamos a comentar, bastante por encima, otro aspecto recogido en el Modelo E/R
+Extendido. Y es cuando una entidad se puede subdividir en otras. Por ejemplo
+podríamos refinar la entidad EMPLEADO en JEFES, SECRETARIOS y TRABAJADORES.
 
-Empleat seria el **SUPERTIPUS** o **SUPERCLASSE** i els altres els
-**SUBTIPUS**. EMPLEAT seria la **GENERALITZACIÓ** dels altres. I els altres
-serien l'**ESPECIALITZACIÓ** d'EMPLEAT.
+Empleado sería el **SUPERTIPO** o **SUPERCLASE** y los otros los
+**SUBTIPOS**. EMPLEADO sería la **GENERALIZACIÓN** de los otros. Y los otros
+serían la **ESPECIALIZACIÓN** de EMPLEADO.
 
 
 
@@ -167,31 +167,31 @@ serien l'**ESPECIALITZACIÓ** d'EMPLEAT.
 
 
 
-Un aspecte important és l'**HERÈNCIA** , que consisteix en què els subtipus
-heretaran els atributs del supertipus, de manera que no caldrà repetir-los.
-Únicament s'hauran de declarar els atributs específics de la subclasse (en CAP
-podríem tenir l'opinió del seu departament; en SECRETARI número de pulsacions
-per segon o coneixements d'informàtica; en TREBALLADOR si està disposat a fer
-hores extres).
+Un aspecto importante es la **HERENCIA**, que consiste en que los subtipos
+heredarán los atributos del supertipo, de manera que no hará falta repetirlos.
+Únicamente se tendrán que declarar los atributos específicos de la subclase (en JEFE
+podríamos tener la opinión de su departamento; en SECRETARIO número de pulsaciones
+por segundo o conocimientos de informática; en TRABAJADOR si está dispuesto a hacer
+horas extras).
 
-Hi ha més d'una classe d'especialització depenent de dos criteris:
+Hay más de una clase de especialización dependiendo de dos criterios:
 
-  * Si se **solapen** (una ocurrència de la superclasse pot pertànyer a més d'una subclasse) o són **disjuntes**(una ocurrència de la superclasse només pot pertànyer a una subclasse). Per exemple els empleats especialitzats per torn de treball (matí, vesprada, nit), pot donar-se el cas que algun treballador treballe matí i vesprada de forma no intensiva (atenció a públic), i per tant seria solapada. Un exemple d'especialització no solapada seria l'especialització per tipus de treball (cap, secretari, treballador), on un empleat no pot pertànyer a dues subclasses.
+  * Si se **solapan** (una ocurrencia de la superclase puede pertenecer a más de una subclase) o son **disjuntas**(una ocurrencia de la superclase solo puede pertenecer a una subclase). Por ejemplo los empleados especializados por turno de trabajo (mañana, tarde, noche), puede darse el caso de que algún trabajador trabaje mañana y tarde de forma no intensiva (atención al público), y por tanto sería solapada. Un ejemplo de especialización no solapada sería la especialización por tipo de trabajo (jefe, secretario, trabajador), donde un empleado no puede pertenecer a dos subclases.
   
 
-  * Si és **total** (totes les ocurrències del supertipus pertanyen a algun subtipus) o **parcial**. Un exemple de total seria una especialització per dedicació a l'empresa (completa o no completa). Un exemple de parcial seria l'especialització per tipus de treball (cap, secretari, treballador) ja que podria haver algun treballador que no coincidesca (un assessor,...) 
+  * Si es **total** (todas las ocurrencias del supertipo pertenecen a algún subtipo) o **parcial**. Un ejemplo de total sería una especialización por dedicación a la empresa (completa o no completa). Un ejemplo de parcial sería la especialización por tipo de trabajo (jefe, secretario, trabajador) ya que podría haber algún trabajador que no coincida (un asesor,...) 
 
-No anem a insistir molt en aquest tema perquè a més, en el tractament
-posterior (quan passem al Model Relacional), de vegades es representen totes
-les entitats, però de vegades per motius pràctics se simplifica (suprimint bé
-el supertipus, bé els subtipus).
+No vamos a insistir mucho en este tema porque además, en el tratamiento
+posterior (cuando pasemos al Modelo Relacional), a veces se representan todas
+las entidades, pero a veces por motivos prácticos se simplifica (suprimiendo bien
+el supertipo, bien los subtipos).
 
-### Aplicació a l'exemple
+### Aplicación al ejemplo
 
 
 
-L'exemple, considerant únicament els subtipus **CAP** i **TREBALLADOR**
-d’**EMPLEAT** , quedaria així:
+El ejemplo, considerando únicamente los subtipos **JEFE** y **TRABAJADOR**
+de **EMPLEADO**, quedaría así:
 
 
 
@@ -201,10 +201,10 @@ d’**EMPLEAT** , quedaria així:
 
 
 
-On "**T,D** " que està dins del triangle significa que l'especialització és
-Total i Disjunta
+Donde "**T,D** " que está dentro del triángulo significa que la especialización es
+Total y Disjunta
 
 
-Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
+Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
 CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 

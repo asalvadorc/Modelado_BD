@@ -1,20 +1,19 @@
-# Exercicis
+# Ejercicios
 
 
-## ![](icon_activity.gif) Exercici 1
+## ![](icon_activity.gif) Ejercicio 1
 
-Intentar traure les entitats i atributs corresponents a una cooperativa de vi,
-amb els següents requisits  
+Intentar sacar las entidades y atributos correspondientes a una cooperativa de vino,
+con los siguientes requisitos  
 
-  * En la cooperativa hi ha una sèrie de socis dels quals ens interessa el nom, adreça, ciutat, codi postal, DNI, ... 
+  * En la cooperativa hay una serie de socios de los cuales nos interesa el nombre, dirección, ciudad, código postal, DNI, ... 
 
-  * Hi ha unes classes de vi que té la cooperativa. D'aquestes classes de vi volem tenir una descripció, el preu de venda, la categoria, la procedència i l'any de collita. 
+  * Hay unas clases de vino que tiene la cooperativa. De estas clases de vino queremos tener una descripción, el precio de venta, la categoría, la procedencia y el año de cosecha. 
 
-  * Els socis retiren de la cooperativa distintes quantitats. Se'ls fa un val on ha de constar la data i la quantitat retirada.
+  * Los socios retiran de la cooperativa distintas cantidades. Se les hace un vale donde tiene que constar la fecha y la cantidad retirada.
 
-Inteteu fer-lo sobre paper, sense por de fer-lo malament.  
+Intentad hacerlo sobre papel, sin miedo de hacerlo mal.  
 
 
-Llicenciat sota la  [Llicència Creative Commons Reconeixement NoComercial
+Licenciado bajo la [Licencia Creative Commons Reconocimiento NoComercial
 CompartirIgual 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
-
