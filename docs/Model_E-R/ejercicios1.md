@@ -75,26 +75,23 @@ colección:
   * Una mariposa solo puede pertenecer a una colección, y una colección está formada al menos por un ejemplar. Toda mariposa que pertenece a una colección tendrá un determinado valor. 
 
 <!--
-## ![](icon_activity.gif) Exercici 7
+## ![](icon_activity.gif) Ejercicio 7
 
-Una empresa de línies ferroviàries vol que se li dissenye una Base de Dades
-per a la seua gestió. Aquesta és l'anàlisi de requeriments:
+Una empresa de líneas ferroviarias quiere que se le diseñe una Base de Datos para su gestión. Este es el análisis de requerimientos:
 
-  * La companyia necessita controlar els trens, els seus treballadors i els viatges realitzats. 
+  * La compañía necesita controlar los trenes, sus trabajadores y los viajes realizados. 
 
-  * Dels treballadors es vol guardar el seu codi i nom. Per als conductors, a més a més, ens interessa el número d'hores que han realitzat.
+  * De los trabajadores se quiere guardar su código y nombre. Para los conductores, además, nos interesa el número de horas que han realizado.
 
-  * Tots els treballadors tenen una estació base a la qual pertanyen i de les estacions es vol tenir el nom, la localitat i el telèfon.
+  * Todos los trabajadores tienen una estación base a la que pertenecen y de las estaciones se quiere tener el nombre, la localidad y el teléfono.
 
-  * Els trens tenen un codi que els identifica, un tipus (rodalies, grans línies,…) i una estació on se li realitzen les revisions de manteniment.
+  * Los trenes tienen un código que los identifica, un tipo (cercanías, grandes líneas,…) y una estación donde se le realizan las revisiones de mantenimiento.
 
-  * Un trajecte serà un tipus de viatge que es realitza regularment. Tindrà una estació origen i una estació de destí.
+  * Un trayecto será un tipo de viaje que se realiza regularmente. Tendrá una estación origen y una estación de destino.
 
-  * Un viatge de tren és una materialització d'un trajecte, i utilitzarà òbviament un tren, una data, una hora d'eixida i un o uns conductors que el porten (no ens interessen els altres possibles treballadors que van en els viatges). Tots els viatges s'identifiquen per un codi, per exemple, el viatge corresponent al trajecte Castelló - València de les 12:10 d'un determinat dia és el viatge 4356.
+  * Un viaje de tren es una materialización de un trayecto, y utilizará obviamente un tren, una fecha, una hora de salida y uno o unos conductores que lo lleven (no nos interesan los otros posibles trabajadores que van en los viajes). Todos los viajes se identifican por un código, por ejemplo, el viaje correspondiente al trayecto Castellón - Valencia de las 12:10 de un determinado día es el viaje 4356.
 
-Opcionalment, podem posar totes les estacions a les quals s'arriba en un
-trajecte (substituint l'estació origen i destí). Haurem de saber si l'estació
-és origen, destí o de pas.
+Opcionalmente, podemos poner todas las estaciones a las que se llega en un trayecto (sustituyendo la estación origen y destino). Tendremos que saber si la estación es origen, destino o de paso.
 
 -->
 
