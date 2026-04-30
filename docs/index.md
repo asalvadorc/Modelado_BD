@@ -1,5 +1,5 @@
 ---
-title:  "Modelado de Bases de Datos"
+title:  "Módulo BD - Modelado de Bases de Datos"
 ---
 
 # ***Bases de Datos***
